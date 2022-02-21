@@ -1,13 +1,13 @@
 import { render } from "@testing-library/react";
-import App from "./App";
+import Socials from "../Socials";
 
 // Smoke Test
 it("renders without breaking", () => {
-  render(<App />);
+  render(<Socials />);
 });
 
 // Snapshot Test
 it("matches snapshot", () => {
-  const { asFragment } = render(<App />);
+  const { asFragment } = render(<Socials />);
   expect(asFragment()).toMatchSnapshot();
 });
