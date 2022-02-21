@@ -1,6 +1,5 @@
 // dependencies
 import React from "react";
-import styled from "styled-components";
 // components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SocialsContainer, VerticalAccentDiv } from "./styles/containers";
@@ -15,9 +14,15 @@ import {
 const Socials = () => {
   return (
     <SocialsContainer>
-      <FontAwesomeIcon icon={faGithub} />
-      <FontAwesomeIcon icon={faTwitter} />
-      <FontAwesomeIcon icon={faLinkedin} />
+      <a href="https://github.com/booshja/">
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
+      <a href="https://twitter.com/booshja">
+        <FontAwesomeIcon icon={faTwitter} />
+      </a>
+      <a href="https://www.linkedin.com/in/jacobandes/">
+        <FontAwesomeIcon icon={faLinkedin} />
+      </a>
       <VerticalAccentDiv />
       <FollowMe>Follow Me</FollowMe>
     </SocialsContainer>

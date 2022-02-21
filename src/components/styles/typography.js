@@ -35,4 +35,12 @@ const FollowMe = styled.p`
   margin-top: 4rem;
 `;
 
-export { WebsiteName, StyledNavLink, FollowMe };
+const CopyrightText = styled.p`
+  color: ${(props) => props.theme.textPrimary};
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 3rem;
+`;
+
+export { WebsiteName, StyledNavLink, FollowMe, CopyrightText };

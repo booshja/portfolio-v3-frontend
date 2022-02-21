@@ -8,7 +8,7 @@ const HeaderContainer = styled.header`
   height: 60px;
   width: 100%;
   padding: 0 3rem 0 3rem;
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-color: transparent;
   color: ${(props) => props.theme.textPrimary};
 `;
 
@@ -29,12 +29,17 @@ const SocialsContainer = styled.aside`
   align-items: center;
   width: 40px;
   padding: 1rem 0 5rem 0;
-  background-color: ${(props) => props.theme.bgPrimary};
-  font-size: 2.4rem;
+  background-color: transparent;
 
-  svg {
-    color: ${(props) => props.theme.textPrimary};
+  a {
+    font-size: 2.4rem;
     margin-bottom: 2rem;
+    color: ${(props) => props.theme.textPrimary};
+
+    &:hover,
+    :focus {
+      filter: brightness(90%);
+    }
   }
 `;
 
