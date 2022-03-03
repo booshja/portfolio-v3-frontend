@@ -19,7 +19,7 @@ section, summary, time {
     background: transparent;
     box-sizing: border-box;
 }
-p, a, button {
+p, textarea, a, button, label {
     font-family: Sen, sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -57,6 +57,9 @@ table {
 }
 input, select {
     vertical-align: middle;
+}
+textarea {
+    resize: none;
 }
 .hidden {
     display: none;

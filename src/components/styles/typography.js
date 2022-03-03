@@ -40,7 +40,7 @@ const CopyrightText = styled.p`
   font-size: 1.2rem;
   position: absolute;
   bottom: 1rem;
-  right: 3rem;
+  right: 1rem;
 `;
 
 export { WebsiteName, StyledNavLink, FollowMe, CopyrightText };

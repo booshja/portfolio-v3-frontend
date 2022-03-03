@@ -14,11 +14,26 @@ const Header = ({ nextTheme }) => {
   const theme = useTheme();
   const location = useLocation();
 
+  const makeBreadcrumbs = (pathname) => {
+    const slicedPath = pathname.slice(1);
+    const splitPath = slicedPath.split("/");
+    let breadcrumbs = splitPath[0] + "()";
+    if (splitPath.length > 1) {
+      for (let i = 1; i < splitPath.length; i++) {
+        breadcrumbs = breadcrumbs + "." + splitPath[i];
+      }
+    }
+
+    return breadcrumbs;
+  };
+
   return (
     <HeaderContainer>
       <WebsiteName to="/">
         JacobAndes.
-        {location.pathname === "/" ? "is" : location.pathname.slice(1)}( )
+        {location.pathname === "/"
+          ? "is()"
+          : makeBreadcrumbs(location.pathname)}
       </WebsiteName>
       <Nav>
         <StyledNavLink to="/">.is()</StyledNavLink>

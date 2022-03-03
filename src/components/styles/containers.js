@@ -10,6 +10,7 @@ const HeaderContainer = styled.header`
   padding: 0 3rem 0 3rem;
   background-color: transparent;
   color: ${(props) => props.theme.textPrimary};
+  z-index: 100;
 `;
 
 const Nav = styled.nav`
