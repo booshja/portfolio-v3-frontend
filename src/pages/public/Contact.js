@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 // components
-import { PageContainer } from "./styles/containers";
+import {
+  PageContainer,
+  MainContent,
+  LeftSide,
+  RightSide as Right,
+} from "./styles/containers";
 import { PageTitle } from "./styles/typography";
 // assets
 import MailBoxes from "../../assets/po-boxes.jpeg";
@@ -12,19 +17,7 @@ const ContactContainer = styled(PageContainer)`
   background-color: ${(props) => props.theme.bgSecondary};
 `;
 
-const MainContent = styled.div`
-  display: flex;
-`;
-
-const LeftSide = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  padding-top: 1rem;
-`;
-
-const RightSide = styled.div`
-  display: flex;
+const RightSide = styled(Right)`
   height: 75vh;
   margin-left: 8rem;
 `;
@@ -127,7 +120,7 @@ const Contact = () => {
       {/* {approval && <Approval />} */}
       {/* {error && <Error />} */}
       {!loading && !approval && !error && (
-        <MainContent>
+        <MainContent className="slide-in-left">
           <LeftSide>
             <ContactText>
               Have a question, thoughts, or want to work together?

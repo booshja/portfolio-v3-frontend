@@ -10,6 +10,7 @@ const IsPageContainer = styled(PageContainer)`
   justify-content: center;
   align-items: center;
   padding: 0;
+  min-height: 100vh;
 `;
 
 const Is = () => {

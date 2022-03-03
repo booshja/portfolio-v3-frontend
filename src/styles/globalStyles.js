@@ -19,7 +19,7 @@ section, summary, time {
     background: transparent;
     box-sizing: border-box;
 }
-p, textarea, a, button, label {
+p, textarea, a, button, label, li {
     font-family: Sen, sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -66,6 +66,19 @@ textarea {
 }
 #root {
     width: 100%;
+}
+.slide-in-left {
+    animation: slide-in-left 400ms ease-in-out forwards;
+}
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-5px);
+        opacity: 0%;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 100%;
+    }
 }
 `;
 

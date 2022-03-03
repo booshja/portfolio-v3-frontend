@@ -9,6 +9,22 @@ const PageContainer = styled.div`
   padding: 8rem 10rem 0 10rem;
 `;
 
+const MainContent = styled.div`
+  display: flex;
+  height: calc(100% - 60px);
+`;
+
+const LeftSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding-top: 1rem;
+`;
+
+const RightSide = styled.div`
+  display: flex;
+`;
+
 /** Dividers *********************************************/
 
 const LandingDivider = styled.div`
@@ -18,4 +34,4 @@ const LandingDivider = styled.div`
   margin-bottom: 3rem;
 `;
 
-export { PageContainer, LandingDivider };
+export { PageContainer, LandingDivider, MainContent, LeftSide, RightSide };
