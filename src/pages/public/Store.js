@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // components
 import { PageContainer, MainContent } from "./styles/containers";
+import { LoadingSpinner } from "../../components";
 import { PageTitle } from "./styles/typography";
-
-import LoadingSpinner from "../../components/LoadingSpinner";
 
 const StoreContainer = styled(PageContainer)`
   background-color: ${(props) => props.theme.bgPrimary};
@@ -28,9 +27,12 @@ const Store = () => {
 
   if (loading) {
     return (
-      <MainContent>
-        <LoadingSpinner />
-      </MainContent>
+      <StoreContainer>
+        <PageTitle>store()</PageTitle>
+        <MainContent className="center">
+          <LoadingSpinner />
+        </MainContent>
+      </StoreContainer>
     );
   }
 
@@ -38,8 +40,7 @@ const Store = () => {
     <StoreContainer>
       <PageTitle>store()</PageTitle>
       <MainContent className="slide-in-left">
-        <ComingSoonText>Coming soon...</ComingSoonText>
-        <LoadingSpinner />
+        <ComingSoonText>Coming soon&hellip;</ComingSoonText>
       </MainContent>
     </StoreContainer>
   );

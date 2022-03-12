@@ -45,4 +45,10 @@ const CopyrightText = styled.p`
   right: 1rem;
 `;
 
-export { WebsiteName, StyledNavLink, FollowMe, CopyrightText };
+const LoadingText = styled.p`
+  color: ${(props) => props.theme.textPrimary};
+  font-size: 3rem;
+  margin-top: 2rem;
+`;
+
+export { WebsiteName, StyledNavLink, FollowMe, CopyrightText, LoadingText };

@@ -19,6 +19,9 @@ section, summary, time {
     background: transparent;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 p, textarea, a, button, label, li {
     font-family: Sen, sans-serif;
 }
@@ -64,8 +67,14 @@ textarea {
 .hidden {
     display: none;
 }
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #root {
     width: 100%;
+    position: relative;
 }
 .slide-in-left {
     animation: slide-in-left 400ms ease-in-out forwards;

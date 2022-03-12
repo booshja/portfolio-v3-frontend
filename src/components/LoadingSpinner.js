@@ -1,19 +1,16 @@
 // dependencies
 import React from "react";
-import styled from "styled-components";
+// assets
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
 // components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// assets
-import { faHockeyPuck } from "@fortawesome/free-solid-svg-icons";
-
-const SpinnerContainer = styled.div`
-  font-size: 8rem;
-  color: ${(props) => props.theme.textPrimary};
-`;
+import { LoadingText } from "./styles/typography";
+import { SpinnerContainer } from "./styles/containers";
 
 const LoadingSpinner = () => (
   <SpinnerContainer>
-    <FontAwesomeIcon icon={faHockeyPuck} spin />
+    <FontAwesomeIcon icon={faPaw} spin />
+    <LoadingText>Loading&hellip;</LoadingText>
   </SpinnerContainer>
 );
 

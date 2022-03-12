@@ -1,6 +1,13 @@
 // dependencies
 import styled from "styled-components";
 
+/** Generics ******************************************* */
+const ColumnFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+/** Containers ***************************************** */
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
@@ -21,9 +28,9 @@ const Nav = styled.nav`
 `;
 
 const SocialsContainer = styled.aside`
-  position: absolute;
+  position: fixed;
   left: 1rem;
-  top: 25%;
+  top: calc(25vh - 60px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,6 +51,12 @@ const SocialsContainer = styled.aside`
   }
 `;
 
+const SpinnerContainer = styled(ColumnFlex)`
+  font-size: 10rem;
+  color: ${(props) => props.theme.textPrimary};
+  align-items: center;
+`;
+
 /** Accent Div's *************************************** */
 const VerticalAccentDiv = styled.div`
   width: 2px;
@@ -52,4 +65,10 @@ const VerticalAccentDiv = styled.div`
   margin-bottom: 2rem;
 `;
 
-export { HeaderContainer, Nav, SocialsContainer, VerticalAccentDiv };
+export {
+  HeaderContainer,
+  Nav,
+  SocialsContainer,
+  SpinnerContainer,
+  VerticalAccentDiv,
+};

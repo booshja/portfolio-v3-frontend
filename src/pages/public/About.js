@@ -6,9 +6,17 @@ import {
   PageContainer,
   MainContent,
   LeftSide as Left,
-  RightSide as Right,
 } from "./styles/containers";
-import { PageTitle } from "./styles/typography";
+import {
+  PageTitle,
+  Hi,
+  StoryGreeting,
+  StoryLink,
+  StoryText,
+  SkillsHeader,
+  SkillsList,
+  Skill,
+} from "./styles/typography";
 // assets
 import Headshot from "../../assets/headshot.jpg";
 import { LoadingSpinner } from "../../components";
@@ -22,67 +30,12 @@ const LeftSide = styled(Left)`
   z-index: 2;
 `;
 
-const RightSide = styled(Right)`
+const RightSide = styled.div`
+  display: flex;
   width: 20%;
   margin-bottom: 5rem;
   z-index: 1;
 `;
-
-const Hi = styled.span`
-  color: inherit;
-  font-weight: 700;
-  font-size: 2.8rem;
-  font-family: Poppins, sans-serif;
-`;
-
-const StoryGreeting = styled.h2`
-  color: ${(props) => props.theme.textPrimary};
-  font-size: 3rem;
-  margin: 3rem 0 1rem 0;
-`;
-
-const StoryText = styled.p`
-  color: ${(props) => props.theme.textPrimary};
-  font-size: 2rem;
-  margin: 1rem 0 1rem 2rem;
-  line-height: 1.5;
-  background: transparent;
-`;
-
-const StoryLink = styled.a`
-  color: ${(props) => props.theme.textPrimary};
-  font-size: 2rem;
-  font-weight: 700;
-  text-decoration: underline;
-
-  &:hover {
-    filter: brightness(60%);
-  }
-`;
-
-const SkillsHeader = styled.h2`
-  color: ${(props) => props.theme.textPrimary};
-  font-size: 2.6rem;
-  font-weight: 700;
-  margin: 2rem 0;
-`;
-
-const SkillsList = styled.ul`
-  padding-left: 2rem;
-  height: 40%;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-`;
-
-const Skill = styled.li`
-  color: ${(props) => props.theme.textPrimary};
-  font-size: 2rem;
-  margin: 1rem 0;
-`;
-
-const Me = styled.img``;
 
 const About = () => {
   const [loading, setLoading] = useState(true);
@@ -94,17 +47,20 @@ const About = () => {
 
   if (loading) {
     return (
-      <MainContent>
-        <LoadingSpinner />
-      </MainContent>
+      <AboutContainer>
+        <PageTitle>about()</PageTitle>
+        <MainContent className="center">
+          <LoadingSpinner />
+        </MainContent>
+      </AboutContainer>
     );
   }
 
   return (
-    <AboutContainer id="AboutContainer">
+    <AboutContainer>
       <PageTitle>about()</PageTitle>
-      <MainContent id="MainContent" className="slide-in-left">
-        <LeftSide id="LeftSide">
+      <MainContent className="slide-in-left">
+        <LeftSide>
           <StoryGreeting>
             <Hi>Hi! </Hi>
             I&apos;m Jacob!
@@ -158,7 +114,7 @@ const About = () => {
           </SkillsList>
         </LeftSide>
         <RightSide>
-          <Me
+          <img
             src={Headshot}
             alt="Jacob smiling in front of an abstact, brightly colored cloud mural by Painting Joy Mural Co."
           />

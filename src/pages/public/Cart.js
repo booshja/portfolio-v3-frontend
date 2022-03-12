@@ -20,14 +20,19 @@ const Cart = () => {
 
   if (loading) {
     return (
-      <MainContent>
-        <LoadingSpinner />
-      </MainContent>
+      <CartContainer>
+        <PageTitle>cart(0)</PageTitle>
+        <MainContent className="center">
+          <LoadingSpinner />
+        </MainContent>
+      </CartContainer>
     );
   }
+
   return (
     <CartContainer>
       <PageTitle>cart(0)</PageTitle>
+      <MainContent className="slide-in-left">{/*  */}</MainContent>
     </CartContainer>
   );
 };

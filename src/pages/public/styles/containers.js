@@ -1,8 +1,14 @@
+// dependencies
 import styled from "styled-components";
 
-const PageContainer = styled.div`
+/** Generics ******************************************* */
+const ColumnFlex = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+/** Containers ***************************************** */
+const PageContainer = styled(ColumnFlex)`
   width: 100%;
   height: 100vh;
   margin-top: -60px;
@@ -14,9 +20,7 @@ const MainContent = styled.div`
   height: calc(100% - 60px);
 `;
 
-const LeftSide = styled.div`
-  display: flex;
-  flex-direction: column;
+const LeftSide = styled(ColumnFlex)`
   width: 60%;
   padding-top: 1rem;
 `;
@@ -25,8 +29,84 @@ const RightSide = styled.div`
   display: flex;
 `;
 
-/** Dividers ******************************************* */
+const FormError = styled.div`
+  font-family: Poppins, sans-serif;
+  border: solid 2px #e9072b;
+  border-radius: 4px;
+  background-color: #ffcccc;
+  color: #000000;
+  font-size: 1.4rem;
+  padding: 1rem;
+  margin: 0 0 1rem 1rem;
+`;
 
+const ExpLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+`;
+
+const ExpRight = styled.div`
+  display: flex;
+  width: 30%;
+`;
+
+const ExpCardInner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: center;
+`;
+
+const ExpCard = styled.div`
+  background-color: transparent;
+  width: 400px;
+  height: 300px;
+  perspective: 1000px;
+  margin-left: 2rem;
+
+  &:hover ${ExpCardInner} {
+    transform: rotateY(180deg);
+  }
+`;
+
+const ExpCardBack = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: ${(props) => props.theme.bgCard};
+  color: ${(props) => props.theme.textCard};
+  transform: rotateY(180deg);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  backface-visibility: hidden;
+  padding: 20% 1rem 20% 1rem;
+  border: ${(props) =>
+    props.theme.themeName === "Light" ? "2px solid #000000" : "none"};
+
+  & a:nth-of-type(1) {
+    margin-bottom: 3rem;
+  }
+`;
+
+const ExpCardFront = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.bgSecondary};
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+`;
+
+/** Dividers ******************************************* */
 const LandingDivider = styled.div`
   width: 45%;
   height: 4px;
@@ -34,4 +114,28 @@ const LandingDivider = styled.div`
   margin-bottom: 3rem;
 `;
 
-export { PageContainer, LandingDivider, MainContent, LeftSide, RightSide };
+/** Images ********************************************* */
+const MailImg = styled.img`
+  width: 100%;
+`;
+
+const Screencap = styled.img`
+  height: 296px;
+`;
+
+export {
+  PageContainer,
+  LandingDivider,
+  MainContent,
+  LeftSide,
+  RightSide,
+  FormError,
+  MailImg,
+  Screencap,
+  ExpCard,
+  ExpCardBack,
+  ExpCardFront,
+  ExpCardInner,
+  ExpLeft,
+  ExpRight,
+};

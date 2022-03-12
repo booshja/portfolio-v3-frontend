@@ -7,10 +7,19 @@ import {
   PageContainer,
   MainContent,
   LeftSide,
-  RightSide as Right,
+  FormError,
+  MailImg,
 } from "./styles/containers";
+import { FormSubmitBtn } from "./styles/buttons";
 import { LoadingSpinner } from "../../components";
-import { PageTitle } from "./styles/typography";
+import {
+  PageTitle,
+  ContactForm,
+  ContactInput,
+  ContactLabel,
+  ContactText,
+  ContactTextArea,
+} from "./styles/typography";
 // assets
 import MailBoxes from "../../assets/po-boxes.jpeg";
 
@@ -18,76 +27,10 @@ const ContactContainer = styled(PageContainer)`
   background-color: ${(props) => props.theme.bgSecondary};
 `;
 
-const RightSide = styled(Right)`
+const RightSide = styled.div`
+  display: flex;
   height: 75vh;
   margin-left: 8rem;
-`;
-
-const ContactText = styled.p`
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
-  color: ${(props) => props.theme.textPrimary};
-  margin: 2rem 0 1rem 2rem;
-`;
-
-const ContactForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1rem 0 0 2rem;
-`;
-
-const ContactLabel = styled.label`
-  font-size: 2rem;
-  color: ${(props) => props.theme.textPrimary};
-  margin-bottom: 0.5rem;
-`;
-
-const ContactInput = styled.input`
-  padding: 0.5rem;
-  font-size: 1.8rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-  width: calc(100% - 1rem);
-`;
-
-const ContactTextArea = styled.textarea`
-  padding: 0.5rem;
-  font-size: 1.8rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-  width: calc(100% - 1rem);
-`;
-
-const FormError = styled.div`
-  font-family: Poppins, sans-serif;
-  border: solid 2px #e9072b;
-  border-radius: 4px;
-  background-color: #ffcccc;
-  color: #000000;
-  font-size: 1.4rem;
-  padding: 1rem;
-  margin: 0 0 1rem 1rem;
-`;
-
-const FormSubmitBtn = styled.button`
-  align-self: flex-end;
-  background-color: #68a2b9;
-  border-radius: 4px;
-  border: 2px solid #68a2b9;
-  color: ${(props) => props.theme.textPrimary};
-  transition: background-color 400ms;
-  padding: 5px 10px;
-  font-size: 2rem;
-
-  &:hover {
-    background-color: ${(props) => props.theme.bgSecondary};
-    cursor: pointer;
-  }
-`;
-
-const MailImg = styled.img`
-  width: 100%;
 `;
 
 const Contact = () => {
@@ -117,9 +60,12 @@ const Contact = () => {
 
   if (loading) {
     return (
-      <MainContent>
-        <LoadingSpinner />
-      </MainContent>
+      <ContactContainer>
+        <PageTitle>contact()</PageTitle>
+        <MainContent className="center">
+          <LoadingSpinner />
+        </MainContent>
+      </ContactContainer>
     );
   }
 
