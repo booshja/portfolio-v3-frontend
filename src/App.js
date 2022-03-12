@@ -9,16 +9,14 @@ import Router from "./Router";
 
 const THEMES = [lightTheme, darkTheme, softTheme, sharpTheme];
 
-function App() {
+const App = () => {
   const [currentTheme, setCurrentTheme] = useState(lightTheme);
   const [themeNumber, setThemeNumber] = useState(0);
 
   useEffect(() => {
     const rememberedTheme = localStorage.getItem("theme");
     if (rememberedTheme) {
-      if (rememberedTheme === "Light") {
-        return;
-      } else if (rememberedTheme === "Dark") {
+      if (rememberedTheme === "Dark") {
         setThemeNumber(() => 1);
         setCurrentTheme(() => THEMES[1]);
       } else if (rememberedTheme === "Soft") {
@@ -53,6 +51,6 @@ function App() {
       </ThemeProvider>
     </>
   );
-}
+};
 
 export default App;

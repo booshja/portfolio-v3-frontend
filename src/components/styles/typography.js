@@ -3,13 +3,14 @@ import styled from "styled-components";
 // components
 import { Link, NavLink } from "react-router-dom";
 
-/** Links ************************************************/
+/** Links ********************************************** */
 const WebsiteName = styled(Link)`
   font-family: Poppins, sans-serif;
   font-weight: 700;
   font-size: 2rem;
   flex-basis: 25%;
   text-decoration: none;
+  color: ${(props) => props.theme.textPrimary};
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -17,6 +18,7 @@ const StyledNavLink = styled(NavLink)`
   font-size: 1.8rem;
   font-weight: 400;
   text-decoration: none;
+  color: ${(props) => props.theme.textPrimary};
 
   &.active {
     font-weight: 700;
@@ -24,9 +26,9 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-/** Headers **********************************************/
+/** Headers ******************************************** */
 
-/** Text *************************************************/
+/** Text *********************************************** */
 const FollowMe = styled.p`
   color: ${(props) => props.theme.textPrimary};
   font-size: 2rem;

@@ -9,6 +9,7 @@ import {
   LeftSide,
   RightSide as Right,
 } from "./styles/containers";
+import { LoadingSpinner } from "../../components";
 import { PageTitle } from "./styles/typography";
 // assets
 import MailBoxes from "../../assets/po-boxes.jpeg";
@@ -105,6 +106,7 @@ const Contact = () => {
     try {
       // check against recaptcha
       // send data to API
+      console.log(data);
       setApproval(true);
     } catch (err) {
       console.log(err);
@@ -112,6 +114,14 @@ const Contact = () => {
     }
     setLoading(false);
   };
+
+  if (loading) {
+    return (
+      <MainContent>
+        <LoadingSpinner />
+      </MainContent>
+    );
+  }
 
   return (
     <ContactContainer>

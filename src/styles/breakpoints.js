@@ -5,7 +5,7 @@ const breakpoints = (
   cssProp = "padding",
   cssPropUnits = "px",
   values = [],
-  mediaQueryType = "min-width"
+  mediaQueryType = "min-width",
 ) => {
   // function for creating media queries for use in styled-components
   const breakpointProps = values.reduce((mediaQueries, value) => {
@@ -13,11 +13,12 @@ const breakpoints = (
       Object.keys(value)[0],
       Object.values(value)[0],
     ];
-    return (mediaQueries += `
+    const queries = `${mediaQueries}
         @media screen and (${mediaQueryType}: ${screenBreakpoint}px) {
             ${cssProp}: ${cssPropBreakpoint}${cssPropUnits};
         }
-        `);
+        `;
+    return queries;
   }, "");
   return css([breakpointProps]);
 };

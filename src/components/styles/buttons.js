@@ -18,4 +18,8 @@ const NavButton = styled.button`
   }
 `;
 
-export { NavButton };
+const OtherButton = styled.button`
+  background-color: transparent;
+`;
+
+export { NavButton, OtherButton };

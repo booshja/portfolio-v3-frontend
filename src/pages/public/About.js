@@ -1,18 +1,31 @@
 // dependencies
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // components
 import {
   PageContainer,
   MainContent,
-  LeftSide,
-  RightSide,
+  LeftSide as Left,
+  RightSide as Right,
 } from "./styles/containers";
 import { PageTitle } from "./styles/typography";
+// assets
+import Headshot from "../../assets/headshot.jpg";
+import { LoadingSpinner } from "../../components";
 
 const AboutContainer = styled(PageContainer)`
   background-color: ${(props) => props.theme.bgPrimary};
-  /* padding-bottom: 2rem; */
+`;
+
+const LeftSide = styled(Left)`
+  width: 70%;
+  z-index: 2;
+`;
+
+const RightSide = styled(Right)`
+  width: 20%;
+  margin-bottom: 5rem;
+  z-index: 1;
 `;
 
 const Hi = styled.span`
@@ -69,22 +82,36 @@ const Skill = styled.li`
   margin: 1rem 0;
 `;
 
-// const Me = styled.img`
-//   height: 100%;
-// `;
+const Me = styled.img``;
 
 const About = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    console.log("loading");
+    setLoading(false);
+  }, []);
+
+  if (loading) {
+    return (
+      <MainContent>
+        <LoadingSpinner />
+      </MainContent>
+    );
+  }
+
   return (
     <AboutContainer id="AboutContainer">
       <PageTitle>about()</PageTitle>
       <MainContent id="MainContent" className="slide-in-left">
         <LeftSide id="LeftSide">
           <StoryGreeting>
-            <Hi>Hi!</Hi> I'm Jacob!
+            <Hi>Hi! </Hi>
+            I&apos;m Jacob!
           </StoryGreeting>
           <StoryText>
-            I'm a Full Stack Software Engineer from Seattle, WA. I'm currently
-            building the future of medical supply with{" "}
+            I&apos;m a Full Stack Software Engineer from Seattle, WA. I&apos;m
+            currently building the future of medical supply with&nbsp;
             <StoryLink
               href="https://bttnusa.com"
               target="_blank"
@@ -96,16 +123,17 @@ const About = () => {
             beautiful, reliable, and responsive web applications.
           </StoryText>
           <StoryText>
-            When I'm not coding, you can find me spending time with my{" "}
+            When I&apos;m not coding, you can find me spending time with
+            my&nbsp;
             <StoryLink
               href="https://paintingjoy.art"
               target="_blank"
               rel="noopener noreferrer"
             >
               partner
-            </StoryLink>{" "}
-            and dogs, reading, watching hockey, or clumsily playing hockey in
-            the Kraken Hockey League.
+            </StoryLink>
+            &nbsp; and dogs, reading, watching hockey, or clumsily playing
+            hockey in the Kraken Hockey League.
           </StoryText>
           <SkillsHeader>Skills:</SkillsHeader>
           <SkillsList>
@@ -130,10 +158,10 @@ const About = () => {
           </SkillsList>
         </LeftSide>
         <RightSide>
-          {/* <Me
-            src=""
+          <Me
+            src={Headshot}
             alt="Jacob smiling in front of an abstact, brightly colored cloud mural by Painting Joy Mural Co."
-          /> */}
+          />
         </RightSide>
       </MainContent>
     </AboutContainer>

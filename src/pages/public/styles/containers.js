@@ -25,7 +25,7 @@ const RightSide = styled.div`
   display: flex;
 `;
 
-/** Dividers *********************************************/
+/** Dividers ******************************************* */
 
 const LandingDivider = styled.div`
   width: 45%;

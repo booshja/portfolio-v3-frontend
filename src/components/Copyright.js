@@ -7,7 +7,7 @@ const Copyright = () => {
 
   return (
     <CopyrightText>
-      Copyright &copy; 2021-{thisYear} - jacobandes.dev
+      Copyright &copy; 2020-{thisYear} - jacobandes.dev
     </CopyrightText>
   );
 };

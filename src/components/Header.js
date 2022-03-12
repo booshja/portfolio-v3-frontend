@@ -2,13 +2,13 @@
 import React from "react";
 import { useTheme } from "styled-components";
 import { useLocation } from "react-router";
+// assets
+import { faMountain } from "@fortawesome/free-solid-svg-icons";
 // components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HeaderContainer, Nav } from "./styles/containers";
 import { WebsiteName, StyledNavLink } from "./styles/typography";
 import { NavButton } from "./styles/buttons";
-// assets
-import { faMountain } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ nextTheme }) => {
   const theme = useTheme();
@@ -17,10 +17,10 @@ const Header = ({ nextTheme }) => {
   const makeBreadcrumbs = (pathname) => {
     const slicedPath = pathname.slice(1);
     const splitPath = slicedPath.split("/");
-    let breadcrumbs = splitPath[0] + "()";
+    let breadcrumbs = `${splitPath[0]}()`;
     if (splitPath.length > 1) {
-      for (let i = 1; i < splitPath.length; i++) {
-        breadcrumbs = breadcrumbs + "." + splitPath[i];
+      for (let i = 1; i < splitPath.length; i + 1) {
+        breadcrumbs = `${breadcrumbs}.${splitPath[i]}`;
       }
     }
 
@@ -40,10 +40,10 @@ const Header = ({ nextTheme }) => {
         <StyledNavLink to="/experience">.experience()</StyledNavLink>
         <StyledNavLink to="/about">.about()</StyledNavLink>
         <StyledNavLink to="/contact">.contact()</StyledNavLink>
-        <StyledNavLink to="/store">.store({0})</StyledNavLink>
+        <StyledNavLink to="/store">{`.store({0})`}</StyledNavLink>
         <NavButton onClick={nextTheme}>
           <FontAwesomeIcon icon={faMountain} />
-          {" " + theme.themeName}
+          {` ${theme.themeName}`}
         </NavButton>
       </Nav>
     </HeaderContainer>

@@ -38,7 +38,7 @@ const SocialsContainer = styled.aside`
     color: ${(props) => props.theme.textPrimary};
 
     &:hover,
-    :focus {
+    &:focus {
       filter: brightness(90%);
     }
   }

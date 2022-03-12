@@ -1,9 +1,11 @@
 // dependencies
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // components
-import { PageContainer } from "./styles/containers";
+import { PageContainer, MainContent } from "./styles/containers";
 import { PageTitle } from "./styles/typography";
+
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const StoreContainer = styled(PageContainer)`
   background-color: ${(props) => props.theme.bgPrimary};
@@ -17,10 +19,28 @@ const ComingSoonText = styled.p`
 `;
 
 const Store = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    console.log("loading");
+    setLoading(false);
+  }, []);
+
+  if (loading) {
+    return (
+      <MainContent>
+        <LoadingSpinner />
+      </MainContent>
+    );
+  }
+
   return (
     <StoreContainer>
       <PageTitle>store()</PageTitle>
-      <ComingSoonText>Coming soon...</ComingSoonText>
+      <MainContent className="slide-in-left">
+        <ComingSoonText>Coming soon...</ComingSoonText>
+        <LoadingSpinner />
+      </MainContent>
     </StoreContainer>
   );
 };

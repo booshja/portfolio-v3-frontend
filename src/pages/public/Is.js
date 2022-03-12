@@ -13,14 +13,12 @@ const IsPageContainer = styled(PageContainer)`
   min-height: 100vh;
 `;
 
-const Is = () => {
-  return (
-    <IsPageContainer>
-      <MyName>Jacob Andes</MyName>
-      <LandingDivider />
-      <MyTitle>Full Stack Software Engineer</MyTitle>
-    </IsPageContainer>
-  );
-};
+const Is = () => (
+  <IsPageContainer>
+    <MyName>Jacob Andes</MyName>
+    <LandingDivider />
+    <MyTitle>Full Stack Software Engineer</MyTitle>
+  </IsPageContainer>
+);
 
 export default Is;
