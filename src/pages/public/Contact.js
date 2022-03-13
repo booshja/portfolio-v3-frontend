@@ -46,15 +46,14 @@ const Contact = () => {
   const [approval, setApproval] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleDataSubmit = (data) => {
+  const onSubmit = (data) => {
     setLoading(true);
     const sendData = async () => {
       try {
-        // check against recaptcha
-        // send data to API
-        await sendEmail(data);
+        // todo: check against recaptcha
+        // todo: send data to API
+        // await sendEmail(data);
         setApproval(true);
-        // setApproval(true);
         setLoading(false);
       } catch (err) {
         setError(true);
@@ -87,9 +86,7 @@ const Contact = () => {
             <ContactText>
               Have a question, thoughts, or want to work together?
             </ContactText>
-            <ContactForm
-              onSubmit={handleSubmit((data) => handleDataSubmit(data))}
-            >
+            <ContactForm onSubmit={handleSubmit(onSubmit)}>
               <ContactLabel htmlFor="name">Name:</ContactLabel>
               <ContactInput
                 type="text"

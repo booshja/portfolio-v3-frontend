@@ -40,7 +40,7 @@ const Header = ({ nextTheme }) => {
         <StyledNavLink to="/experience">.experience()</StyledNavLink>
         <StyledNavLink to="/about">.about()</StyledNavLink>
         <StyledNavLink to="/contact">.contact()</StyledNavLink>
-        <StyledNavLink to="/store">{`.store({0})`}</StyledNavLink>
+        <StyledNavLink to="/store">.store()</StyledNavLink>
         <NavButton onClick={nextTheme}>
           <FontAwesomeIcon icon={faMountain} />
           {` ${theme.themeName}`}

@@ -82,7 +82,8 @@ const About = () => {
             beautiful, reliable, and responsive web applications.
           </StoryText>
           <StoryText>
-            When I&apos;m not coding, you can find me spending time with my
+            When I&apos;m not coding, you can find me spending time with
+            my&nbsp;
             <StoryLink
               href="https://paintingjoy.art"
               target="_blank"
@@ -90,8 +91,8 @@ const About = () => {
             >
               partner
             </StoryLink>
-            &nbsp; and dogs, reading, watching hockey, or clumsily playing
-            hockey in the Kraken Hockey League.
+            &nbsp;and dogs, reading, watching hockey, or clumsily playing hockey
+            in the Kraken Hockey League.
           </StoryText>
           <SkillsHeader>Skills:</SkillsHeader>
           <SkillsList>
