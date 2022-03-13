@@ -65,7 +65,14 @@ const VerticalAccentDiv = styled.div`
   margin-bottom: 2rem;
 `;
 
+/** Images ********************************************* */
+const ResultImg = styled.img`
+  width: 60%;
+`;
+
 export {
+  ResultImg,
+  ColumnFlex,
   HeaderContainer,
   Nav,
   SocialsContainer,

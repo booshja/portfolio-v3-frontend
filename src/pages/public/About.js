@@ -27,14 +27,17 @@ const AboutContainer = styled(PageContainer)`
 
 const LeftSide = styled(Left)`
   width: 70%;
-  z-index: 2;
 `;
 
 const RightSide = styled.div`
   display: flex;
-  width: 20%;
+  width: 30%;
   margin-bottom: 5rem;
-  z-index: 1;
+  padding-top: 10rem;
+
+  /* img {
+    width: 100%;
+  } */
 `;
 
 const About = () => {
@@ -79,8 +82,7 @@ const About = () => {
             beautiful, reliable, and responsive web applications.
           </StoryText>
           <StoryText>
-            When I&apos;m not coding, you can find me spending time with
-            my&nbsp;
+            When I&apos;m not coding, you can find me spending time with my
             <StoryLink
               href="https://paintingjoy.art"
               target="_blank"

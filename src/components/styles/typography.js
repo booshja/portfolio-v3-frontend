@@ -26,7 +26,24 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
+const ResultLink = styled(Link)`
+  font-family: Poppins, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-decoration: underline;
+  color: ${(props) => props.theme.textPrimary};
+
+  &:hover {
+    filter: brightness(60%);
+  }
+`;
+
 /** Headers ******************************************** */
+const ResultText = styled.h2`
+  color: ${(props) => props.theme.textPrimary};
+  font-size: 3rem;
+  margin: 2rem 0;
+`;
 
 /** Text *********************************************** */
 const FollowMe = styled.p`
@@ -51,4 +68,12 @@ const LoadingText = styled.p`
   margin-top: 2rem;
 `;
 
-export { WebsiteName, StyledNavLink, FollowMe, CopyrightText, LoadingText };
+export {
+  WebsiteName,
+  StyledNavLink,
+  FollowMe,
+  CopyrightText,
+  LoadingText,
+  ResultText,
+  ResultLink,
+};

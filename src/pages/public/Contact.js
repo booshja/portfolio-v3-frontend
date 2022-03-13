@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+// services
+import sendEmail from "../../services/emailService";
 // components
 import {
   PageContainer,
@@ -11,7 +13,7 @@ import {
   MailImg,
 } from "./styles/containers";
 import { FormSubmitBtn } from "./styles/buttons";
-import { LoadingSpinner } from "../../components";
+import { Result, LoadingSpinner } from "../../components";
 import {
   PageTitle,
   ContactForm,
@@ -46,16 +48,20 @@ const Contact = () => {
 
   const handleDataSubmit = (data) => {
     setLoading(true);
-    try {
-      // check against recaptcha
-      // send data to API
-      console.log(data);
-      setApproval(true);
-    } catch (err) {
-      console.log(err);
-      setError(true);
-    }
-    setLoading(false);
+    const sendData = async () => {
+      try {
+        // check against recaptcha
+        // send data to API
+        await sendEmail(data);
+        setApproval(true);
+        // setApproval(true);
+        setLoading(false);
+      } catch (err) {
+        setError(true);
+      }
+    };
+
+    sendData();
   };
 
   if (loading) {
@@ -72,9 +78,9 @@ const Contact = () => {
   return (
     <ContactContainer>
       <PageTitle>contact()</PageTitle>
-      {/* {loading && <LoadingSpinner />} */}
-      {/* {approval && <Approval />} */}
-      {/* {error && <Error />} */}
+      {loading && <LoadingSpinner />}
+      {approval && <Result approval className="slide-in-left" />}
+      {error && <Result className="slide-in-left" />}
       {!loading && !approval && !error && (
         <MainContent className="slide-in-left">
           <LeftSide>
@@ -100,7 +106,7 @@ const Contact = () => {
                 {...register("email", { required: "Email is required." })}
               />
               {errors.email && <FormError>{errors.email.message}</FormError>}
-              <ContactLabel htmlFor="name">Name:</ContactLabel>
+              <ContactLabel htmlFor="name">Message:</ContactLabel>
               <ContactTextArea
                 placeholder="I had an idea for you..."
                 id="message"
