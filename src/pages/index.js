@@ -9,11 +9,8 @@ import Store from "./public/Store";
 // admin pages
 import Dashboard from "./admin/Dashboard";
 import Login from "./admin/Login";
-import Message from "./admin/Message";
 import Messages from "./admin/Messages";
-import Order from "./admin/Order";
 import Orders from "./admin/Orders";
-import Project from "./admin/Project";
 import Projects from "./admin/Projects";
 
 export {
@@ -24,12 +21,9 @@ export {
   Experience,
   Is,
   Login,
-  Message,
   Messages,
   NotFound,
-  Order,
   Orders,
-  Project,
   Projects,
   Store,
 };

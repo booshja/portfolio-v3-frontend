@@ -6,7 +6,9 @@ import Checkout from "./Checkout";
 import Copyright from "./Copyright";
 import Header from "./Header";
 import LoadingSpinner from "./LoadingSpinner";
+import MessageItem from "./MessageItem";
 import ProductsList from "./ProductsList";
+import ProjectItem from "./ProjectItem";
 import Result from "./Result";
 import Socials from "./Socials";
 
@@ -18,7 +20,9 @@ export {
   Copyright,
   Header,
   LoadingSpinner,
+  MessageItem,
   ProductsList,
+  ProjectItem,
   Result,
   Socials,
 };

@@ -26,7 +26,7 @@ import {
 import MailBoxes from "../../assets/po-boxes.jpeg";
 
 const ContactContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
 `;
 
 const RightSide = styled.div`

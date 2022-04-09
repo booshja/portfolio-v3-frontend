@@ -16,7 +16,7 @@ const MainContent = styled.div`
 
 const Module = styled.div`
   border-radius: 6px;
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
   min-height: 20rem;
   padding: 1rem;
   display: flex;
@@ -24,27 +24,27 @@ const Module = styled.div`
 `;
 
 const ModuleHeader = styled.h3`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 `;
 
 const ModuleSubHeader = styled.h4`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2.25rem;
   margin-bottom: 1.5rem;
   font-weight: 400;
 `;
 
 const ModuleText = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
 `;
 
 const ModuleLink = styled.a`
-  color: ${(props) => props.theme.textSecondary};
+  color: ${({ theme: t }) => t.textSecondary};
   font-size: 2rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
@@ -56,7 +56,7 @@ const ProjectsModule = styled(Module)`
 
 const Dashboard = () => {
   useEffect(() => {
-    console.log("Dashing!");
+    // console.log("Dashing!");
   }, []);
 
   return (
@@ -83,11 +83,21 @@ const Dashboard = () => {
         </Module>
         <Module>
           <ModuleHeader>Links</ModuleHeader>
-          <ModuleLink>auth0</ModuleLink>
-          <ModuleLink>Stripe</ModuleLink>
-          <ModuleLink>Commercejs</ModuleLink>
-          <ModuleLink>Cloudflare</ModuleLink>
-          <ModuleLink>Heroku</ModuleLink>
+          <ModuleLink href="https://auth0.com" target="_blank">
+            auth0
+          </ModuleLink>
+          <ModuleLink href="https://stripe.com" target="_blank">
+            Stripe
+          </ModuleLink>
+          <ModuleLink href="https://commercejs.com" target="_blank">
+            Commerce.js
+          </ModuleLink>
+          <ModuleLink href="https://cloudflare.com" target="_blank">
+            Cloudflare
+          </ModuleLink>
+          <ModuleLink href="https://heroku.com" target="_blank">
+            Heroku
+          </ModuleLink>
         </Module>
         <ProjectsModule>
           <ModuleHeader>Projects</ModuleHeader>

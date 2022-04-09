@@ -52,8 +52,10 @@ const adminTheme = {
   textPrimary: "#ffffff",
   accent: "#89ddff",
   buttonGreen: "#007991",
+  activeLink: "#51597C",
   red: "#ffcccc",
   black: "#000000",
+  white: "#ffffff",
   themeName: "Admin",
 };
 

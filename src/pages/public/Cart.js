@@ -14,6 +14,7 @@ import { getCart } from "../../services/commerce";
 const CartContainer = styled(MainContent)`
   display: flex;
   flex-direction: column;
+  background-color: ${({ theme: t }) => t.bgPrimary};
 `;
 
 const Cart = () => {

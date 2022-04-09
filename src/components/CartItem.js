@@ -16,21 +16,21 @@ const CartItemImage = styled.img`
 `;
 
 const CartItemDetailsPrice = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
 `;
 
 const QuantityText = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
   margin-inline: 1rem;
 `;
 
 const QuantityButton = styled.button`
-  border: 2px solid ${(props) => props.theme.textPrimary};
-  background-color: ${(props) => props.theme.bgPrimary};
+  border: 2px solid ${({ theme: t }) => t.textPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
   border-radius: 4px;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
   width: 3rem;
   display: flex;
@@ -39,7 +39,7 @@ const QuantityButton = styled.button`
   transition: background-color 400ms;
 
   &:hover {
-    background-color: ${(props) => props.theme.bgSecondary};
+    background-color: ${({ theme: t }) => t.bgSecondary};
     cursor: pointer;
   }
 `;
@@ -53,7 +53,7 @@ const CartItemDetails = styled.div`
 `;
 
 const CartItemName = styled.h4`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 3rem;
 `;
 
@@ -64,15 +64,15 @@ const QuantityContainer = styled.div`
 `;
 
 const RemoveButton = styled.button`
-  border: 2px solid ${(props) => props.theme.textPrimary};
-  background-color: ${(props) => props.theme.bgPrimary};
+  border: 2px solid ${({ theme: t }) => t.textPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
   font-size: 2rem;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   border-radius: 4px;
   transition: background-color 400ms;
 
   &:hover {
-    background-color: ${(props) => props.theme.red};
+    background-color: ${({ theme: t }) => t.red};
     cursor: pointer;
   }
 `;
@@ -80,10 +80,11 @@ const RemoveButton = styled.button`
 const CartItem = ({ item }) => {
   const handleUpdateCartQty = async (lineItemId, quantity) => {
     try {
-      const cartRes = await updateCartQty(lineItemId, quantity);
-      console.log(cartRes);
+      await updateCartQty(lineItemId, quantity);
+      // const cartRes = await updateCartQty(lineItemId, quantity);
+      // console.log(cartRes);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

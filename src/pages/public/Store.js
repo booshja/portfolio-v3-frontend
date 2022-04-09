@@ -34,17 +34,17 @@ import {
 } from "../../services/commerce";
 
 const StoreContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
 `;
 
 const CartLink = styled(Link)`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2.5rem;
   align-self: flex-end;
 `;
 
 // const ComingSoonText = styled.p`
-//   color: ${(props) => props.theme.textPrimary};
+//   color: ${({theme: t}) => t.textPrimary};
 //   font-size: 4rem;
 //   margin-top: 2rem;
 //   margin-left: 2rem;

@@ -6,22 +6,23 @@ import {
   faHouseDamage,
   faEnvelopeOpenText,
   faCartFlatbed,
+  faSkullCrossbones,
 } from "@fortawesome/free-solid-svg-icons";
 import { faInternetExplorer } from "@fortawesome/free-brands-svg-icons";
 // components
 import { Outlet, useLocation } from "react-router";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { WebsiteName } from "./styles/typography";
 
 const SideNav = styled.nav`
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
   min-height: 100vh;
   height: 100%;
   width: 175px;
   display: flex;
   flex-direction: column;
-  padding: calc(60px + 2rem) 2rem;
+  padding-block: calc(60px + 2rem) 2rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -29,7 +30,7 @@ const SideNav = styled.nav`
   z-index: 0;
 `;
 const TopNav = styled.div`
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
   width: 100%;
   height: 60px;
   position: absolute;
@@ -38,6 +39,21 @@ const TopNav = styled.div`
   right: 0;
   z-index: 1;
   padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const StyledLink = styled(Link)`
+  font-size: 1.8rem;
+  color: ${({ theme: t }) => t.black};
+  display: flex;
+  align-items: center;
+`;
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  margin-right: 0.5rem;
+  font-size: 2rem;
 `;
 
 const NavList = styled.ul`
@@ -45,14 +61,17 @@ const NavList = styled.ul`
   flex-direction: column;
 `;
 
+const NavLi = styled.li``;
+
 const NavItem = styled(NavLink)`
   font-size: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 4rem;
+  width: 100%;
 
-  & p {
+  p {
     font-size: 2.5rem;
     margin-top: 0.5rem;
   }
@@ -83,33 +102,36 @@ const AdminNavbar = () => {
           admin.
           {makeBreadcrumbs(location.pathname)}
         </WebsiteName>
+        <StyledLink to="/admin">
+          <StyledIcon icon={faSkullCrossbones} /> Log Out
+        </StyledLink>
       </TopNav>
       <SideNav>
         <NavList>
-          <li>
+          <NavLi>
             <NavItem to="/admin">
               <FontAwesomeIcon icon={faHouseDamage} />
               <p>Dashboard</p>
             </NavItem>
-          </li>
-          <li>
+          </NavLi>
+          <NavLi>
             <NavItem to="/admin/messages">
               <FontAwesomeIcon icon={faEnvelopeOpenText} />
               <p>Messages</p>
             </NavItem>
-          </li>
-          <li>
+          </NavLi>
+          <NavLi>
             <NavItem to="/admin/projects">
               <FontAwesomeIcon icon={faInternetExplorer} />
               <p>Projects</p>
             </NavItem>
-          </li>
-          <li>
+          </NavLi>
+          <NavLi>
             <NavItem to="/admin/orders">
               <FontAwesomeIcon icon={faCartFlatbed} />
               <p>Orders</p>
             </NavItem>
-          </li>
+          </NavLi>
         </NavList>
       </SideNav>
       <Outlet />

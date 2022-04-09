@@ -6,18 +6,18 @@ const MyName = styled.h1`
   font-weight: 700;
   letter-spacing: 5%;
   margin-bottom: 3rem;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
 `;
 
 const MyTitle = styled.p`
   font-size: 5rem;
   font-weight: 700;
   letter-spacing: 2.5%;
-  color: ${(props) => props.theme.textSecondary};
+  color: ${({ theme: t }) => t.textSecondary};
 `;
 
 const PageTitle = styled.h1`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   align-self: flex-start;
   justify-self: flex-start;
   font-size: 4rem;
@@ -31,13 +31,13 @@ const Hi = styled.span`
 `;
 
 const StoryGreeting = styled.h2`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 3rem;
   margin: 3rem 0 1rem 0;
 `;
 
 const StoryText = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
   margin: 1rem 0 1rem 2rem;
   line-height: 1.5;
@@ -45,7 +45,7 @@ const StoryText = styled.p`
 `;
 
 const StoryLink = styled.a`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
   font-weight: 700;
   text-decoration: underline;
@@ -56,7 +56,7 @@ const StoryLink = styled.a`
 `;
 
 const SkillsHeader = styled.h2`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2.6rem;
   font-weight: 700;
   margin: 2rem 0;
@@ -72,7 +72,7 @@ const SkillsList = styled.ul`
 `;
 
 const Skill = styled.li`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
   margin: 1rem 0;
 `;
@@ -80,7 +80,7 @@ const Skill = styled.li`
 const ContactText = styled.p`
   font-size: 2.2rem;
   margin-bottom: 2rem;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   margin: 2rem 0 1rem 2rem;
 `;
 
@@ -93,7 +93,7 @@ const ContactForm = styled.form`
 
 const ContactLabel = styled.label`
   font-size: 2rem;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   margin-bottom: 0.5rem;
 `;
 
@@ -114,12 +114,12 @@ const ContactTextArea = styled.textarea`
 `;
 
 const ExpList = styled.ul`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   padding: 2rem 0 3rem 3rem;
 `;
 
 const ExpItemName = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -127,7 +127,7 @@ const ExpItemName = styled.p`
 `;
 
 const ExpItemText = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -158,7 +158,7 @@ const ExpCardLink = styled.a`
 `;
 
 const ExpItem = styled.li`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 1.8rem;
   margin-bottom: 3rem;
   display: flex;
@@ -178,11 +178,11 @@ const TagList = styled.ul`
 
 const Tag = styled.li`
   border-radius: 15px;
-  background-color: ${(props) => props.theme.bgCard};
-  color: ${(props) => props.theme.bgPrimary};
-  ${(props) => props.theme.themeName === "Light" && "color: #000000;"};
-  border: ${(props) =>
-    props.theme.themeName === "Light" ? "2px solid #000000" : "none"};
+  background-color: ${({ theme: t }) => t.bgCard};
+  color: ${({ theme: t }) => t.bgPrimary};
+  ${({ theme: t }) => t.themeName === "Light" && "color: #000000;"};
+  border: ${({ theme: t }) =>
+    t.themeName === "Light" ? "2px solid #000000" : "none"};
   display: flex;
   justify-content: center;
   align-items: center;

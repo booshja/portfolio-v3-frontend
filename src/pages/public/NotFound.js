@@ -11,13 +11,13 @@ import SadIceCream from "../../assets/sad-ice-cream.jpeg";
 import BugsSaysNo from "../../assets/bugs-bunnys-no.png";
 
 const NotFoundContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
   min-height: 100vh;
-  ${(props) => (props.wp ? "display: flex" : null)};
-  ${(props) => (props.wp ? "align-items: center" : null)};
-  ${(props) => (props.wp ? "justify-content: center" : null)};
-  ${(props) => (props.wp ? "margin-top: 0" : null)};
-  ${(props) => (props.wp ? "padding-top: 0" : null)};
+  ${({ wp }) => (wp ? "display: flex" : null)};
+  ${({ wp }) => (wp ? "align-items: center" : null)};
+  ${({ wp }) => (wp ? "justify-content: center" : null)};
+  ${({ wp }) => (wp ? "margin-top: 0" : null)};
+  ${({ wp }) => (wp ? "padding-top: 0" : null)};
 `;
 
 const NotFoundContent = styled(MainContent)`
@@ -38,7 +38,7 @@ const BugsNoImg = styled.img`
 const NotFoundText = styled.p`
   font-size: 3rem;
   margin-bottom: 2rem;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   margin: 2rem 0 1rem 2rem;
 `;
 
@@ -46,7 +46,7 @@ const NotFoundLink = styled(Link)`
   font-size: 3rem;
   font-weight: 700;
   text-decoration: underline;
-  color: ${(props) => props.theme.textSecondary};
+  color: ${({ theme: t }) => t.textSecondary};
 
   &:hover {
     filter: brightness(80%);

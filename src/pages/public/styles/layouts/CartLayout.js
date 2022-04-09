@@ -6,7 +6,7 @@ import { Outlet } from "react-router";
 import { PageContainer } from "../containers";
 
 const CartContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
 `;
 
 const CartLayout = () => (

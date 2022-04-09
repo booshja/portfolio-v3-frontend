@@ -22,7 +22,7 @@ import Headshot from "../../assets/headshot.jpg";
 import { LoadingSpinner } from "../../components";
 
 const AboutContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
 `;
 
 const LeftSide = styled(Left)`

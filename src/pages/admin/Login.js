@@ -14,11 +14,11 @@ const LoginContainer = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
 `;
 
 const LoginBox = styled.div`
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
   border-radius: 8px;
   width: 25%;
   height: 25%;
@@ -26,11 +26,11 @@ const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 2.5px 2.5px 2.5px ${(props) => props.theme.black};
+  box-shadow: 2.5px 2.5px 2.5px ${({ theme: t }) => t.black};
 `;
 
 const LoginHeader = styled(Link)`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 4rem;
   font-weight: 700;
   text-align: center;
@@ -48,34 +48,34 @@ const ButtonContainer = styled.div`
 
 const LoginButton = styled(Link)`
   font-size: 2rem;
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
   border-radius: 6px;
   padding: 0.5rem 1rem;
   cursor: pointer;
   line-height: 1.5;
-  box-shadow: 2.5px 2.5px 2.5px ${(props) => props.theme.bgPrimary};
+  box-shadow: 2.5px 2.5px 2.5px ${({ theme: t }) => t.bgPrimary};
 
   &:hover {
-    color: ${(props) => props.theme.bgPrimary};
-    border: 2px solid ${(props) => props.theme.bgPrimary};
+    color: ${({ theme: t }) => t.bgPrimary};
+    border: 2px solid ${({ theme: t }) => t.bgPrimary};
   }
 `;
 
 const LoginBtn = styled(LoginButton)`
-  color: ${(props) => props.theme.buttonGreen};
-  border: 2px solid ${(props) => props.theme.buttonGreen};
+  color: ${({ theme: t }) => t.buttonGreen};
+  border: 2px solid ${({ theme: t }) => t.buttonGreen};
 
   &:hover {
-    background-color: ${(props) => props.theme.buttonGreen};
+    background-color: ${({ theme: t }) => t.buttonGreen};
   }
 `;
 
 const CancelBtn = styled(LoginButton)`
-  color: ${(props) => props.theme.red};
-  border: 2px solid ${(props) => props.theme.red};
+  color: ${({ theme: t }) => t.red};
+  border: 2px solid ${({ theme: t }) => t.red};
 
   &:hover {
-    background-color: ${(props) => props.theme.red};
+    background-color: ${({ theme: t }) => t.red};
   }
 `;
 

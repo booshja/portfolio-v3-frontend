@@ -127,7 +127,7 @@ const dummyData = [
 ];
 
 const ExpContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
   height: 100%;
   min-height: 100vh;
 `;

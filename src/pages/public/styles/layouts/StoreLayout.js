@@ -7,7 +7,7 @@ import { PageContainer } from "../containers";
 import { PageTitle } from "../typography";
 
 const StoreContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
 `;
 
 const StoreLayout = () => (

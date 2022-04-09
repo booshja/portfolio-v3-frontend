@@ -9,7 +9,7 @@ const OrdersContainer = styled(AdminPageContainer)``;
 
 const Orders = () => {
   useEffect(() => {
-    console.log("Orders");
+    // console.log("Orders");
   }, []);
   return (
     <OrdersContainer>
