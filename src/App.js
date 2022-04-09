@@ -1,17 +1,25 @@
 // dependencies
 import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
 // styles
+import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/globalStyles";
 import { darkTheme, lightTheme, sharpTheme, softTheme } from "./styles/themes";
-// router
+// components
 import Router from "./Router";
+import { MainContent } from "./pages/public/styles/containers";
+import { LoadingSpinner } from "./components";
+// services
+import { getProducts, getCart } from "./services/commerce";
 
 const THEMES = [lightTheme, darkTheme, softTheme, sharpTheme];
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
   const [currentTheme, setCurrentTheme] = useState(lightTheme);
   const [themeNumber, setThemeNumber] = useState(0);
+
+  const [cart, setCart] = useState({});
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const rememberedTheme = localStorage.getItem("theme");
@@ -31,6 +39,19 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    try {
+      const productsRes = getProducts();
+      setProducts(productsRes);
+      const cartRes = getCart();
+      setCart(cartRes);
+      setLoading(false);
+    } catch (err) {
+      console.log("Error fetching cart!", err);
+      // push to error page
+    }
+  }, []);
+
   const nextTheme = () => {
     if (themeNumber === 3) {
       setThemeNumber(() => 0);
@@ -43,11 +64,23 @@ const App = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <MainContent className="center">
+        <LoadingSpinner />
+      </MainContent>
+    );
+  }
+
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={currentTheme}>
-        <Router nextTheme={nextTheme} />
+        <Router
+          nextTheme={nextTheme}
+          publicTheme={currentTheme}
+          commerceProps={{ products, cart }}
+        />
       </ThemeProvider>
     </>
   );

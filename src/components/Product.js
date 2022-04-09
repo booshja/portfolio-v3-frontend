@@ -47,12 +47,8 @@ const ItemButton = styled.button`
   }
 `;
 
-const Product = ({ item }) => {
+const Product = ({ item, handleAddToCart }) => {
   const itemDescription = item.description.slice(3, -4);
-
-  const handleAdd = () => {
-    console.log("Item added to cart", item);
-  };
 
   return (
     <ItemCard>
@@ -60,7 +56,9 @@ const Product = ({ item }) => {
       <ItemName>{item.name}</ItemName>
       <ItemText>{itemDescription}</ItemText>
       <ItemText>{item.price.formatted_with_symbol}</ItemText>
-      <ItemButton onClick={() => handleAdd(item)}>Add to Cart</ItemButton>
+      <ItemButton onClick={() => handleAddToCart(item.id, 1)}>
+        Add to Cart
+      </ItemButton>
     </ItemCard>
   );
 };

@@ -1,13 +1,17 @@
 // dependencies
 import React from "react";
 import ReactDOM from "react-dom";
-// import reportWebVitals from "./reportWebVitals";
 // components
+import { Provider } from "react-redux";
 import App from "./App";
+// redux global state
+import Store from "./store/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={Store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root"),
 );

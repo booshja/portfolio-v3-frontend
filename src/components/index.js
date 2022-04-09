@@ -1,8 +1,22 @@
-import Result from "./Result";
+// components
+import CartItem from "./CartItem";
+import CartList from "./CartList";
+import Checkout from "./Checkout";
 import Copyright from "./Copyright";
 import Header from "./Header";
 import LoadingSpinner from "./LoadingSpinner";
-import Socials from "./Socials";
 import ProductsList from "./ProductsList";
+import Result from "./Result";
+import Socials from "./Socials";
 
-export { Result, Copyright, Header, LoadingSpinner, Socials, ProductsList };
+export {
+  CartItem,
+  CartList,
+  Checkout,
+  Copyright,
+  Header,
+  LoadingSpinner,
+  ProductsList,
+  Result,
+  Socials,
+};

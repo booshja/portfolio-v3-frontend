@@ -10,11 +10,14 @@ import { HeaderContainer, Nav } from "./styles/containers";
 import { WebsiteName, StyledNavLink } from "./styles/typography";
 import { NavButton } from "./styles/buttons";
 
-const Header = ({ nextTheme }) => {
+const Header = ({ nextTheme, notFound }) => {
   const theme = useTheme();
   const location = useLocation();
 
   const makeBreadcrumbs = (pathname) => {
+    if (notFound) return "notFound()";
+    if (pathname === "/") return "is()";
+
     const slicedPath = pathname.slice(1);
     const splitPath = slicedPath.split("/");
     let breadcrumbs = `${splitPath[0]}()`;
@@ -31,9 +34,7 @@ const Header = ({ nextTheme }) => {
     <HeaderContainer>
       <WebsiteName to="/">
         JacobAndes.
-        {location.pathname === "/"
-          ? "is()"
-          : makeBreadcrumbs(location.pathname)}
+        {makeBreadcrumbs(location.pathname)}
       </WebsiteName>
       <Nav>
         <StyledNavLink to="/">.is()</StyledNavLink>
