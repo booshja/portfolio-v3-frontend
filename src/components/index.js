@@ -1,4 +1,5 @@
 // components
+import AdminNavbar from "./AdminNavbar";
 import CartItem from "./CartItem";
 import CartList from "./CartList";
 import Checkout from "./Checkout";
@@ -10,6 +11,7 @@ import Result from "./Result";
 import Socials from "./Socials";
 
 export {
+  AdminNavbar,
   CartItem,
   CartList,
   Checkout,

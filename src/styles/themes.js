@@ -48,7 +48,7 @@ const sharpTheme = {
 
 const adminTheme = {
   bgPrimary: "#001628",
-  bgSecondary: "#292d3e",
+  bgSecondary: "#3d435d",
   textPrimary: "#ffffff",
   accent: "#89ddff",
   buttonGreen: "#007991",

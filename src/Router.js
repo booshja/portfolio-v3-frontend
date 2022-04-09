@@ -2,28 +2,29 @@
 import React from "react";
 // components
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// layouts
 import {
-  PublicLayout,
   CartLayout,
+  PublicLayout,
   StoreLayout,
 } from "./pages/public/styles/layouts";
+import AdminLayout from "./pages/admin/styles/layouts";
 // pages
 import {
   About,
   Cart,
   Contact,
-  // Dashboard,
+  Dashboard,
   Experience,
-  // GeneralError,
   Is,
   Login,
-  // Message,
-  // Messages,
+  Message,
+  Messages,
   NotFound,
-  // Order,
-  // Orders,
-  // Project,
-  // Projects,
+  Order,
+  Orders,
+  Project,
+  Projects,
   Store,
 } from "./pages";
 
@@ -43,15 +44,15 @@ const Router = ({ nextTheme }) => (
         </Route>
       </Route>
       <Route path="/login" element={<Login />} />
-      {/* <Route path="/admin" element={<AdminLayout />}> */}
-      {/* <Route index element={<Dashboard />} /> */}
-      {/* <Route path="messages" element={<Messages />} /> */}
-      {/* <Route path="messages/:id" element={<Message />} /> */}
-      {/* <Route path="projects" element={<Projects />} /> */}
-      {/* <Route path="projects/:id" element={<Project />} /> */}
-      {/* <Route path="orders" element={<Orders />} /> */}
-      {/* <Route path="orders/:id" element={<Order />} /> */}
-      {/* </Route> */}
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="messages" element={<Messages />} />
+        <Route path="messages/:id" element={<Message />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="projects/:id" element={<Project />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="orders/:id" element={<Order />} />
+      </Route>
       <Route path="/wp-admin" element={<NotFound wordPress />} />
       <Route path="*" element={<NotFound nextTheme={nextTheme} />} />
     </Routes>
