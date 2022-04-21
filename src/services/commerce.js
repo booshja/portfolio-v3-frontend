@@ -1,5 +1,6 @@
+// dependencies
 import Commerce from "@chec/commerce.js";
-
+// env constants
 const checAPIKey = process.env.REACT_APP_CHEC_PUBLIC_KEY;
 const devEnvironment = process.env.NODE_ENV === "development";
 
@@ -18,4 +19,56 @@ if (devEnvironment && !checAPIKey) {
   );
 }
 
-export default new Commerce(checAPIKey, devEnvironment, commerceConfig);
+const commerce = new Commerce(checAPIKey, devEnvironment, commerceConfig);
+
+/** Commerce Methods */
+const addToCart = async (productId, quantity) => {
+  const r = await commerce.cart.add(productId, quantity);
+  return r.cart;
+};
+
+const captureCheckout = async (checkoutTokenId, newOrder) => {
+  const r = await commerce.checkout.capture(checkoutTokenId, newOrder);
+  return r;
+};
+
+const emptyCart = async () => {
+  const r = await commerce.cart.empty();
+  return r.cart;
+};
+
+const getCart = async () => {
+  const r = await commerce.cart.retrieve();
+  return r;
+};
+
+const getProducts = async () => {
+  const r = await commerce.products.list();
+  return r.data;
+};
+
+const refreshCart = async () => {
+  const r = await commerce.cart.refresh();
+  return r;
+};
+
+const removeFromCart = async (lineItemId) => {
+  const r = await commerce.cart.remove(lineItemId);
+  return r.cart;
+};
+
+const updateCartQty = async (lineItemId, quantity) => {
+  const r = await commerce.cart.update(lineItemId, { quantity });
+  return r.cart;
+};
+
+export {
+  addToCart,
+  captureCheckout,
+  emptyCart,
+  getCart,
+  getProducts,
+  refreshCart,
+  removeFromCart,
+  updateCartQty,
+};

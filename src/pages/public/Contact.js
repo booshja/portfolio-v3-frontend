@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 // services
 import sendEmail from "../../services/emailService";
+import { useAddNewMessageMutation } from "../../services/booshjaAPI";
 // components
 import {
   PageContainer,
@@ -26,7 +27,7 @@ import {
 import MailBoxes from "../../assets/po-boxes.jpeg";
 
 const ContactContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
 `;
 
 const RightSide = styled.div`
@@ -41,29 +42,23 @@ const Contact = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [addNewMessage, { isLoading }] = useAddNewMessageMutation();
 
-  const [loading, setLoading] = useState(false);
   const [approval, setApproval] = useState(false);
   const [error, setError] = useState(false);
 
-  const onSubmit = (data) => {
-    setLoading(true);
-    const sendData = async () => {
-      try {
-        // todo: check against recaptcha
-        // todo: send data to API
-        // await sendEmail(data);
-        setApproval(true);
-        setLoading(false);
-      } catch (err) {
-        setError(true);
-      }
-    };
-
-    sendData();
+  const onSubmit = async (data) => {
+    try {
+      // todo: check against recaptcha
+      await addNewMessage(data).unwrap();
+      // await sendEmail(data);
+      setApproval(true);
+    } catch (err) {
+      setError(true);
+    }
   };
 
-  if (loading) {
+  if (isLoading) {
     return (
       <ContactContainer>
         <PageTitle>contact()</PageTitle>
@@ -77,10 +72,9 @@ const Contact = () => {
   return (
     <ContactContainer>
       <PageTitle>contact()</PageTitle>
-      {loading && <LoadingSpinner />}
       {approval && <Result approval className="slide-in-left" />}
       {error && <Result className="slide-in-left" />}
-      {!loading && !approval && !error && (
+      {!isLoading && !approval && !error && (
         <MainContent className="slide-in-left">
           <LeftSide>
             <ContactText>
