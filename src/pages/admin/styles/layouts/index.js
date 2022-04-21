@@ -1,3 +1,4 @@
 import AdminLayout from "./AdminLayout";
+import MessagesLayout from "./MessagesLayout";
 
-export default AdminLayout;
+export { AdminLayout, MessagesLayout };

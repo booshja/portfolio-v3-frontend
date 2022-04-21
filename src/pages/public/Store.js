@@ -20,7 +20,7 @@ import {
   setOrder,
   setProducts,
   setReceipt,
-} from "../../slices/commerceSlice";
+} from "../../redux/slices/commerceSlice";
 // services
 import {
   getProducts,

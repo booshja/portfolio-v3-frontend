@@ -109,7 +109,7 @@ const AdminNavbar = () => {
       <SideNav>
         <NavList>
           <NavLi>
-            <NavItem to="/admin">
+            <NavItem to="/admin" end>
               <FontAwesomeIcon icon={faHouseDamage} />
               <p>Dashboard</p>
             </NavItem>

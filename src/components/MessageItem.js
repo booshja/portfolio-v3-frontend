@@ -47,13 +47,16 @@ const GarbageIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-const MessageItem = ({ message }) => (
+const MessageItem = ({ message, handleArchive, handleDelete }) => (
   <MessageContainer>
     <p>Name: {message.name}</p>
     <p>Email: {message.email}</p>
     <p>Message: {message.message}</p>
-    <ArchiveIcon icon={faBoxArchive} />
-    <GarbageIcon icon={faTrashCan} />
+    <ArchiveIcon
+      icon={faBoxArchive}
+      onClick={() => handleArchive(message.id, !message.isArchived)}
+    />
+    <GarbageIcon icon={faTrashCan} onClick={() => handleDelete(message.id)} />
   </MessageContainer>
 );
 

@@ -1,9 +1,15 @@
 // dependencies
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 // components
 import { AdminHeadline } from "./styles/typography";
 import { AdminPageContainer } from "./styles/containers";
+import { LoadingSpinner } from "../../components";
+// services
+import {
+  useGetMessagesQuery,
+  useGetProjectsQuery,
+} from "../../services/booshjaAPI";
 
 const DashboardContainer = styled(AdminPageContainer)``;
 
@@ -54,10 +60,78 @@ const ProjectsModule = styled(Module)`
   grid-column: span 4;
 `;
 
+const ProjectLine = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+
+  p {
+    color: ${({ theme: t }) => t.textPrimary};
+  }
+
+  p:nth-of-type(1) {
+    font-size: 2.2rem;
+    width: 20%;
+  }
+
+  p:nth-of-type(2) {
+    font-size: 2rem;
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+`;
+
 const Dashboard = () => {
-  useEffect(() => {
-    // console.log("Dashing!");
-  }, []);
+  const {
+    data: projectsData,
+    isFetching: projectsIsFetching,
+    isSuccess: projectsIsSuccess,
+    isError: projectsIsError,
+    error: projectsError,
+  } = useGetProjectsQuery();
+  const {
+    data: messagesData,
+    isFetching: messagesIsFetching,
+    isSuccess: messagesIsSuccess,
+    isError: messagesIsError,
+    error: messagesError,
+  } = useGetMessagesQuery();
+
+  let projectsContent;
+  let messagesContent;
+
+  if (projectsIsFetching) {
+    projectsContent = <LoadingSpinner />;
+  } else if (projectsIsSuccess) {
+    if (projectsData.projects.length) {
+      projectsContent = projectsData.projects.slice(0, 10).map((project) => (
+        <ProjectLine key={project.id}>
+          <p>{project.name}</p>
+          <p>{project.description}</p>
+        </ProjectLine>
+      ));
+    } else {
+      projectsContent = <ModuleText>No projects found!</ModuleText>;
+    }
+  } else if (projectsIsError) {
+    projectsContent = <ModuleText>{projectsError.toString()}</ModuleText>;
+  }
+
+  if (messagesIsFetching) {
+    messagesContent = <LoadingSpinner size={4} />;
+  } else if (messagesIsSuccess) {
+    messagesContent = (
+      <>
+        <ModuleText>New: {messagesData.active.length}</ModuleText>
+        <ModuleText>Archived: {messagesData.archived.length}</ModuleText>
+      </>
+    );
+  } else if (messagesIsError) {
+    messagesContent = <ModuleText>{messagesError.toString()}</ModuleText>;
+  }
 
   return (
     <DashboardContainer>
@@ -71,8 +145,7 @@ const Dashboard = () => {
         </Module>
         <Module>
           <ModuleHeader>Messages</ModuleHeader>
-          <ModuleText>New: 0</ModuleText>
-          <ModuleText>Archived: 4</ModuleText>
+          {messagesContent}
         </Module>
         <Module>
           <ModuleHeader>Analytics</ModuleHeader>
@@ -89,7 +162,7 @@ const Dashboard = () => {
           <ModuleLink href="https://stripe.com" target="_blank">
             Stripe
           </ModuleLink>
-          <ModuleLink href="https://commercejs.com" target="_blank">
+          <ModuleLink href="https://dashboard.chec.io/" target="_blank">
             Commerce.js
           </ModuleLink>
           <ModuleLink href="https://cloudflare.com" target="_blank">
@@ -101,6 +174,7 @@ const Dashboard = () => {
         </Module>
         <ProjectsModule>
           <ModuleHeader>Projects</ModuleHeader>
+          {projectsContent}
         </ProjectsModule>
       </MainContent>
     </DashboardContainer>

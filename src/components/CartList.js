@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 // redux global state
-import { selectCart } from "../slices/commerceSlice";
+import { selectCart } from "../redux/slices/commerceSlice";
 
 const CartListContainer = styled.div`
   width: 100%;

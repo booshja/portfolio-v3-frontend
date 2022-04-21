@@ -1,5 +1,6 @@
 // dependencies
 import React from "react";
+import { Outlet } from "react-router";
 import styled, { ThemeProvider } from "styled-components";
 // components
 import { AdminNavbar } from "../../../../components";
@@ -18,6 +19,7 @@ const AdminLayout = () => (
   <ThemeProvider theme={adminTheme}>
     <AdminLayoutContainer>
       <AdminNavbar />
+      <Outlet />
     </AdminLayoutContainer>
   </ThemeProvider>
 );

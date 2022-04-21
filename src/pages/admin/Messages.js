@@ -1,64 +1,20 @@
+/* eslint-disable */
 // dependencies
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // components
-import { AdminHeadline } from "./styles/typography";
-import { AdminPageContainer } from "./styles/containers";
-import { MessageItem } from "../../components";
-
-const messages = [
-  {
-    id: 1,
-    name: "Person McPersonson",
-    email: "person@email.com",
-    message:
-      "Hello, this is a message. Congrats on having a message! This sure is a good one!",
-  },
-  {
-    id: 2,
-    name: "Person McPersonson",
-    email: "person@email.com",
-    message:
-      "Hello, this is a message. Congrats on having a message! This sure is a good one!",
-  },
-  {
-    id: 3,
-    name: "Person McPersonson",
-    email: "person@email.com",
-    message:
-      "Hello, this is a message. Congrats on having a message! This sure is a good one!",
-  },
-  {
-    id: 4,
-    name: "Person McPersonson",
-    email: "person@email.com",
-    message:
-      "Hello, this is a message. Congrats on having a message! This sure is a good one!",
-  },
-  {
-    id: 5,
-    name: "Person McPersonson",
-    email: "person@email.com",
-    message:
-      "Hello, this is a message. Congrats on having a message! This sure is a good one!",
-  },
-  {
-    id: 6,
-    name: "Person McPersonson",
-    email: "person@email.com",
-    message:
-      "Hello, this is a message. Congrats on having a message! This sure is a good one!",
-  },
-];
+import { LoadingSpinner, MessageItem } from "../../components";
+// services
+import {
+  useGetMessagesQuery,
+  useToggleArchiveMutation,
+  useDeleteMessageMutation,
+} from "../../services/booshjaAPI";
 
 const MessageListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   margin: 2rem;
-`;
-
-const MessagesContainer = styled(AdminPageContainer)`
-  position: relative;
 `;
 
 const ArchivedToggle = styled.button`
@@ -78,21 +34,87 @@ const ArchivedToggle = styled.button`
   }
 `;
 
+const ErrorMessage = styled.p`
+  font-size: 3rem;
+  color: white;
+`;
+
 const Messages = () => {
-  useEffect(() => {
-    // console.log("messages");
-  }, []);
+  const { data, isFetching, isSuccess, isError, error } = useGetMessagesQuery();
+  const [toggleArchive, { isLoading: toggleLoading }] =
+    useToggleArchiveMutation();
+  const [deleteMessage, { isLoading: deleteLoading }] =
+    useDeleteMessageMutation();
+
+  const [showArchived, setShowArchived] = useState(false);
+
+  const handleArchive = async (id, archive) => {
+    try {
+      await toggleArchive({ id, archive }).unwrap();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteMessage(id);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  if (isFetching || toggleLoading || deleteLoading) return <LoadingSpinner />;
+
+  let content;
+
+  if (isSuccess) {
+    if (data.active.length || data.archived.length) {
+      if (!showArchived) {
+        content = (
+          <MessageListContainer>
+            {data.active.map((message) => (
+              <MessageItem
+                message={message}
+                handleArchive={handleArchive}
+                handleDelete={handleDelete}
+                key={message.id}
+              />
+            ))}
+          </MessageListContainer>
+        );
+      } else {
+        content = (
+          <MessageListContainer>
+            {data.archived.map((message) => (
+              <MessageItem
+                message={message}
+                handleArchive={handleArchive}
+                handleDelete={handleDelete}
+                key={message.id}
+              />
+            ))}
+          </MessageListContainer>
+        );
+      }
+    } else {
+      content = (
+        <MessageListContainer>
+          <ErrorMessage>No messages found!</ErrorMessage>
+        </MessageListContainer>
+      );
+    }
+  } else if (isError) {
+    content = <ErrorMessage>{error.toString()}</ErrorMessage>;
+  }
 
   return (
-    <MessagesContainer>
-      <AdminHeadline>messages()</AdminHeadline>
-      <ArchivedToggle>See Archived Messages</ArchivedToggle>
-      <MessageListContainer>
-        {messages.map((message) => (
-          <MessageItem message={message} key={message.id} />
-        ))}
-      </MessageListContainer>
-    </MessagesContainer>
+    <>
+      <ArchivedToggle onClick={() => setShowArchived((prev) => !prev)}>
+        See {showArchived ? "Active" : "Archived"} Messages
+      </ArchivedToggle>
+      <MessageListContainer>{content}</MessageListContainer>
+    </>
   );
 };
 

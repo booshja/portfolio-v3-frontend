@@ -8,6 +8,7 @@ import Header from "./Header";
 import LoadingSpinner from "./LoadingSpinner";
 import MessageItem from "./MessageItem";
 import ProductsList from "./ProductsList";
+import Project from "./Project";
 import ProjectItem from "./ProjectItem";
 import Result from "./Result";
 import Socials from "./Socials";
@@ -22,6 +23,7 @@ export {
   LoadingSpinner,
   MessageItem,
   ProductsList,
+  Project,
   ProjectItem,
   Result,
   Socials,

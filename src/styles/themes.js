@@ -59,4 +59,6 @@ const adminTheme = {
   themeName: "Admin",
 };
 
-export { darkTheme, lightTheme, softTheme, sharpTheme, adminTheme };
+const THEMES = [lightTheme, darkTheme, softTheme, sharpTheme];
+
+export { THEMES, adminTheme, lightTheme };

@@ -29,7 +29,7 @@ const LoginBox = styled.div`
   box-shadow: 2.5px 2.5px 2.5px ${({ theme: t }) => t.black};
 `;
 
-const LoginHeader = styled(Link)`
+const LoginHeader = styled.a`
   color: ${({ theme: t }) => t.textPrimary};
   font-size: 4rem;
   font-weight: 700;
@@ -83,7 +83,7 @@ const Login = () => (
   <ThemeProvider theme={adminTheme}>
     <LoginContainer>
       <LoginBox>
-        <LoginHeader to="https://www.auth0.com">Log In</LoginHeader>
+        <LoginHeader href="https://www.auth0.com">Log In</LoginHeader>
         <ButtonContainer>
           <LoginBtn to="/">Log In</LoginBtn>
           <CancelBtn to="/">Cancel</CancelBtn>

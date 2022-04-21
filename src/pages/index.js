@@ -9,6 +9,7 @@ import Store from "./public/Store";
 // admin pages
 import Dashboard from "./admin/Dashboard";
 import Login from "./admin/Login";
+import Message from "./admin/Message";
 import Messages from "./admin/Messages";
 import Orders from "./admin/Orders";
 import Projects from "./admin/Projects";
@@ -21,6 +22,7 @@ export {
   Experience,
   Is,
   Login,
+  Message,
   Messages,
   NotFound,
   Orders,

@@ -2,6 +2,7 @@
 import React from "react";
 import { useTheme } from "styled-components";
 import { useLocation } from "react-router";
+import { useDispatch } from "react-redux";
 // assets
 import { faMountain } from "@fortawesome/free-solid-svg-icons";
 // components
@@ -9,8 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HeaderContainer, Nav } from "./styles/containers";
 import { WebsiteName, StyledNavLink } from "./styles/typography";
 import { NavButton } from "./styles/buttons";
+// state
+import { setNextTheme } from "../redux/slices/themeSlice";
 
-const Header = ({ nextTheme, notFound }) => {
+const Header = ({ notFound }) => {
+  const dispatch = useDispatch();
   const theme = useTheme();
   const location = useLocation();
 
@@ -42,7 +46,7 @@ const Header = ({ nextTheme, notFound }) => {
         <StyledNavLink to="/about">.about()</StyledNavLink>
         <StyledNavLink to="/contact">.contact()</StyledNavLink>
         <StyledNavLink to="/store">.store()</StyledNavLink>
-        <NavButton onClick={nextTheme}>
+        <NavButton onClick={() => dispatch(setNextTheme())}>
           <FontAwesomeIcon icon={faMountain} />
           {` ${theme.themeName}`}
         </NavButton>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 // redux global state
-import { setCart, selectCart } from "../../slices/commerceSlice";
+import { setCart, selectCart } from "../../redux/slices/commerceSlice";
 // components
 import { MainContent } from "./styles/containers";
 import { PageTitle } from "./styles/typography";
