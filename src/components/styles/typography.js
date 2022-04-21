@@ -10,7 +10,7 @@ const WebsiteName = styled(Link)`
   font-size: 2rem;
   flex-basis: 25%;
   text-decoration: none;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -18,7 +18,7 @@ const StyledNavLink = styled(NavLink)`
   font-size: 1.8rem;
   font-weight: 400;
   text-decoration: none;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
 
   &.active {
     font-weight: 700;
@@ -31,7 +31,7 @@ const ResultLink = styled(Link)`
   font-size: 3rem;
   font-weight: 700;
   text-decoration: underline;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
 
   &:hover {
     filter: brightness(60%);
@@ -40,14 +40,14 @@ const ResultLink = styled(Link)`
 
 /** Headers ******************************************** */
 const ResultText = styled.h2`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 3rem;
   margin: 2rem 0;
 `;
 
 /** Text *********************************************** */
 const FollowMe = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2rem;
   transform: rotate(-90deg);
   width: 100px;
@@ -55,7 +55,7 @@ const FollowMe = styled.p`
 `;
 
 const CopyrightText = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 1.2rem;
   position: absolute;
   bottom: 1rem;
@@ -63,7 +63,7 @@ const CopyrightText = styled.p`
 `;
 
 const LoadingText = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 3rem;
   margin-top: 2rem;
 `;

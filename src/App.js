@@ -1,54 +1,52 @@
 // dependencies
 import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
+import { useDispatch } from "react-redux";
 // styles
 import GlobalStyle from "./styles/globalStyles";
-import { darkTheme, lightTheme, sharpTheme, softTheme } from "./styles/themes";
-// router
+import { THEMES } from "./styles/themes";
+// components
 import Router from "./Router";
-
-const THEMES = [lightTheme, darkTheme, softTheme, sharpTheme];
+import { MainContent } from "./pages/public/styles/containers";
+import { LoadingSpinner } from "./components";
+// state
+import { setThemeNumber, setCurrentTheme } from "./redux/slices/themeSlice";
 
 const App = () => {
-  const [currentTheme, setCurrentTheme] = useState(lightTheme);
-  const [themeNumber, setThemeNumber] = useState(0);
+  const dispatch = useDispatch();
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const rememberedTheme = localStorage.getItem("theme");
     if (rememberedTheme) {
       if (rememberedTheme === "Dark") {
-        setThemeNumber(() => 1);
-        setCurrentTheme(() => THEMES[1]);
+        dispatch(setThemeNumber(1));
+        dispatch(setCurrentTheme(THEMES[1]));
       } else if (rememberedTheme === "Soft") {
-        setThemeNumber(() => 2);
-        setCurrentTheme(() => THEMES[2]);
+        dispatch(setThemeNumber(2));
+        dispatch(setCurrentTheme(THEMES[2]));
       } else if (rememberedTheme === "Sharp") {
-        setThemeNumber(() => 3);
-        setCurrentTheme(() => THEMES[3]);
+        dispatch(setThemeNumber(3));
+        dispatch(setCurrentTheme(THEMES[3]));
       }
     } else if (!rememberedTheme) {
       localStorage.setItem("theme", "Light");
     }
+    setLoading(false);
   }, []);
 
-  const nextTheme = () => {
-    if (themeNumber === 3) {
-      setThemeNumber(() => 0);
-      setCurrentTheme(() => THEMES[0]);
-      localStorage.setItem("theme", "Light");
-    } else {
-      localStorage.setItem("theme", THEMES[themeNumber + 1].themeName);
-      setCurrentTheme(THEMES[themeNumber + 1]);
-      setThemeNumber((num) => num + 1);
-    }
-  };
+  if (loading) {
+    return (
+      <MainContent className="center">
+        <LoadingSpinner />
+      </MainContent>
+    );
+  }
 
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={currentTheme}>
-        <Router nextTheme={nextTheme} />
-      </ThemeProvider>
+      <Router />
     </>
   );
 };

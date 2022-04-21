@@ -79,16 +79,16 @@ const ExpCardBack = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  background-color: ${(props) => props.theme.bgCard};
-  color: ${(props) => props.theme.textCard};
+  background-color: ${({ theme: t }) => t.bgCard};
+  color: ${({ theme: t }) => t.textCard};
   transform: rotateY(180deg);
   position: absolute;
   width: 300px;
   height: 300px;
   backface-visibility: hidden;
   padding: 20% 1rem 20% 1rem;
-  border: ${(props) =>
-    props.theme.themeName === "Light" ? "2px solid #000000" : "none"};
+  border: ${({ theme: t }) =>
+    t.themeName === "Light" ? "2px solid #000000" : "none"};
 
   & a:nth-of-type(1) {
     margin-bottom: 3rem;
@@ -99,7 +99,7 @@ const ExpCardFront = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.bgSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
   position: absolute;
   width: 100%;
   height: 100%;
@@ -110,7 +110,7 @@ const ExpCardFront = styled.div`
 const LandingDivider = styled.div`
   width: 45%;
   height: 4px;
-  background-color: ${(props) => props.theme.accent};
+  background-color: ${({ theme: t }) => t.accent};
   margin-bottom: 3rem;
 `;
 

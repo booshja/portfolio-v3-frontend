@@ -1,38 +1,60 @@
 // dependencies
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+// redux global state
+import { setCart, selectCart } from "../../redux/slices/commerceSlice";
 // components
-import { PageContainer, MainContent } from "./styles/containers";
-import { LoadingSpinner } from "../../components";
+import { MainContent } from "./styles/containers";
 import { PageTitle } from "./styles/typography";
+import { LoadingSpinner, CartList, Checkout } from "../../components";
+// utilities
+import { getCart } from "../../services/commerce";
 
-const CartContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgPrimary};
+const CartContainer = styled(MainContent)`
+  display: flex;
+  flex-direction: column;
+  background-color: ${({ theme: t }) => t.bgPrimary};
 `;
 
 const Cart = () => {
+  const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(true);
+  const [isCheckout, setIsCheckout] = useState(false);
+
+  const cart = useSelector(selectCart);
 
   useEffect(() => {
-    console.log("loading");
-    setLoading(false);
+    async function getCartData() {
+      try {
+        const cartData = await getCart();
+        dispatch(setCart(cartData));
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+        // push to error page
+      }
+    }
+
+    getCartData();
   }, []);
 
   if (loading) {
     return (
-      <CartContainer>
-        <PageTitle>cart(0)</PageTitle>
+      <>
+        <PageTitle>cart()</PageTitle>
         <MainContent className="center">
           <LoadingSpinner />
         </MainContent>
-      </CartContainer>
+      </>
     );
   }
 
   return (
-    <CartContainer>
-      <PageTitle>cart(0)</PageTitle>
-      <MainContent className="slide-in-left">{/*  */}</MainContent>
+    <CartContainer className="slide-in-left" id="main-content">
+      <PageTitle>cart({cart.total_unique_items})</PageTitle>
+      {isCheckout ? <Checkout /> : <CartList setIsCheckout={setIsCheckout} />}
     </CartContainer>
   );
 };
