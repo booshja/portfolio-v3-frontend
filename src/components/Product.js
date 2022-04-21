@@ -16,7 +16,7 @@ const ItemImage = styled.img`
 `;
 
 const ItemName = styled.h4`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -24,7 +24,7 @@ const ItemName = styled.h4`
 `;
 
 const ItemText = styled.p`
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 1rem;
@@ -34,25 +34,21 @@ const ItemText = styled.p`
 const ItemButton = styled.button`
   font-family: Poppins, sans-serif;
   font-size: 1.6rem;
-  background-color: ${(props) => props.theme.bgSecondary};
-  color: ${(props) => props.theme.textPrimary};
-  border: 2px solid ${(props) => props.theme.textSecondary};
+  background-color: ${({ theme: t }) => t.bgSecondary};
+  color: ${({ theme: t }) => t.textPrimary};
+  border: 2px solid ${({ theme: t }) => t.textSecondary};
   padding: 5px 10px;
   border-radius: 6px;
 
   &:hover {
     cursor: pointer;
-    background-color: ${(props) => props.theme.textSecondary};
-    color: ${(props) => props.theme.bgSecondary};
+    background-color: ${({ theme: t }) => t.textSecondary};
+    color: ${({ theme: t }) => t.bgSecondary};
   }
 `;
 
-const Product = ({ item }) => {
+const Product = ({ item, handleAddToCart }) => {
   const itemDescription = item.description.slice(3, -4);
-
-  const handleAdd = () => {
-    console.log("Item added to cart", item);
-  };
 
   return (
     <ItemCard>
@@ -60,7 +56,9 @@ const Product = ({ item }) => {
       <ItemName>{item.name}</ItemName>
       <ItemText>{itemDescription}</ItemText>
       <ItemText>{item.price.formatted_with_symbol}</ItemText>
-      <ItemButton onClick={() => handleAdd(item)}>Add to Cart</ItemButton>
+      <ItemButton onClick={() => handleAddToCart(item.id, 1)}>
+        Add to Cart
+      </ItemButton>
     </ItemCard>
   );
 };

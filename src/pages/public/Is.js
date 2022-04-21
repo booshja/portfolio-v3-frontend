@@ -6,7 +6,7 @@ import { PageContainer, LandingDivider } from "./styles/containers";
 import { MyName, MyTitle } from "./styles/typography";
 
 const IsPageContainer = styled(PageContainer)`
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-color: ${({ theme: t }) => t.bgPrimary};
   justify-content: center;
   align-items: center;
   padding: 0;

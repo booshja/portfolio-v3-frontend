@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LoadingText } from "./styles/typography";
 import { SpinnerContainer } from "./styles/containers";
 
-const LoadingSpinner = () => (
-  <SpinnerContainer>
+const LoadingSpinner = ({ size }) => (
+  <SpinnerContainer size={size}>
     <FontAwesomeIcon icon={faPaw} spin />
     <LoadingText>Loading&hellip;</LoadingText>
   </SpinnerContainer>
