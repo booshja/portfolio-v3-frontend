@@ -11,10 +11,14 @@ const ProductsListContainer = styled.ul`
   width: 100%;
 `;
 
-const ProductsList = ({ items }) => (
+const ProductsList = ({ items, handleAddToCart }) => (
   <ProductsListContainer>
     {items.map((product) => (
-      <Product key={product.id} item={product} />
+      <Product
+        key={product.id}
+        item={product}
+        handleAddToCart={handleAddToCart}
+      />
     ))}
   </ProductsListContainer>
 );

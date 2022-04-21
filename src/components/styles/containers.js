@@ -16,7 +16,7 @@ const HeaderContainer = styled.header`
   width: 100%;
   padding: 0 3rem 0 3rem;
   background-color: transparent;
-  color: ${(props) => props.theme.textPrimary};
+  color: ${({ theme: t }) => t.textPrimary};
   z-index: 100;
 `;
 
@@ -42,7 +42,7 @@ const SocialsContainer = styled.aside`
   a {
     font-size: 2.4rem;
     margin-bottom: 2rem;
-    color: ${(props) => props.theme.textPrimary};
+    color: ${({ theme: t }) => t.textPrimary};
 
     &:hover,
     &:focus {
@@ -52,8 +52,8 @@ const SocialsContainer = styled.aside`
 `;
 
 const SpinnerContainer = styled(ColumnFlex)`
-  font-size: 10rem;
-  color: ${(props) => props.theme.textPrimary};
+  font-size: ${(p) => (p.size ? `${p.size}rem` : "10rem")};
+  color: ${({ theme: t }) => t.textPrimary};
   align-items: center;
 `;
 
@@ -61,7 +61,7 @@ const SpinnerContainer = styled(ColumnFlex)`
 const VerticalAccentDiv = styled.div`
   width: 2px;
   height: 200px;
-  background-color: ${(props) => props.theme.accent};
+  background-color: ${({ theme: t }) => t.accent};
   margin-bottom: 2rem;
 `;
 

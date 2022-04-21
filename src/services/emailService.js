@@ -1,5 +1,6 @@
+// dependencies
 import emailjs from "@emailjs/browser";
-
+// env's
 const serviceId = process.env.REACT_APP_EMAILJS_SERVICEID;
 const templateId = process.env.REACT_APP_EMAILJS_TEMPLATEID;
 const userID = process.env.REACT_APP_EMAILJS_USERID;
