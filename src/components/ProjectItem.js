@@ -1,6 +1,8 @@
 // dependencies
 import React from "react";
 import styled from "styled-components";
+// components
+import { Link } from "react-router-dom";
 
 const ProjectItemContainer = styled.li`
   border: 1px solid ${({ theme: t }) => t.white};
@@ -17,7 +19,7 @@ const PIText = styled.p`
   margin-bottom: 0.5rem;
 `;
 
-const PILink = styled.p`
+const PILink = styled(Link)`
   color: ${({ theme: t }) => t.accent};
   text-decoration: underline;
   font-size: 2rem;
@@ -33,7 +35,7 @@ const ProjectItem = ({ project }) => (
   <ProjectItemContainer>
     <PIText>Name: {project.name}</PIText>
     <PIText>Description: {project.description}</PIText>
-    <PILink>View/Edit Project</PILink>
+    <PILink to={`${project.id}`}>View/Edit Project</PILink>
   </ProjectItemContainer>
 );
 
