@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 // components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 // assets
 import { faTrashCan, faBoxArchive } from "@fortawesome/free-solid-svg-icons";
 
@@ -52,6 +53,7 @@ const MessageItem = ({ message, handleArchive, handleDelete }) => (
     <p>Name: {message.name}</p>
     <p>Email: {message.email}</p>
     <p>Message: {message.message}</p>
+    <Link to={`${message.id}`}>View Message</Link>
     <ArchiveIcon
       icon={faBoxArchive}
       onClick={() => handleArchive(message.id, !message.isArchived)}
