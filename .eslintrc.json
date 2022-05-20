@@ -23,7 +23,7 @@
     "no-console": "warn",
     "quotes": [
       "error",
-      "double",
+      "single",
       {
         "avoidEscape": true,
         "allowTemplateLiterals": true
