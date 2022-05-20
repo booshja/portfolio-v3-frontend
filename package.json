@@ -5,7 +5,7 @@
   "description": "Front end React App for jacobandes.dev",
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
-    "@emailjs/browser": "^3.4.0",
+    "@emailjs/browser": "^3.6.2",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -22,14 +22,14 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-google-recaptcha": "^2.1.0",
-    "react-hook-form": "^7.29.0",
+    "react-hook-form": "^7.30.0",
     "react-redux": "^8.0.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.0",
+    "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "uuid": "^8.3.2",
-    "web-vitals": "^2.1.3"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
