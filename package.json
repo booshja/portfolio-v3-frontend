@@ -5,7 +5,7 @@
   "description": "Front end React App for jacobandes.dev",
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
-    "@emailjs/browser": "^3.4.0",
+    "@emailjs/browser": "^3.6.2",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
