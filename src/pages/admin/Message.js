@@ -1,6 +1,6 @@
 // dependencies
-import React from "react";
-import { useParams } from "react-router";
+import React from 'react';
+import { useParams } from 'react-router';
 // import styled from "styled-components";
 
 const Message = () => {

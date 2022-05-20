@@ -1,16 +1,16 @@
 // dependencies
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 // Assets
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 // components
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import { LoadingSpinner, ProductsList } from "../../components";
-import { PageContainer, MainContent } from "./styles/containers";
-import { PageTitle } from "./styles/typography";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import { LoadingSpinner, ProductsList } from '../../components';
+import { PageContainer, MainContent } from './styles/containers';
+import { PageTitle } from './styles/typography';
 // redux global state
 import {
   selectProducts,
@@ -20,7 +20,7 @@ import {
   setOrder,
   setProducts,
   setReceipt,
-} from "../../redux/slices/commerceSlice";
+} from '../../redux/slices/commerceSlice';
 // services
 import {
   getProducts,
@@ -31,7 +31,7 @@ import {
   refreshCart,
   emptyCart,
   captureCheckout,
-} from "../../services/commerce";
+} from '../../services/commerce';
 
 const StoreContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgPrimary};
@@ -110,7 +110,7 @@ const Store = () => {
       const orderRes = await captureCheckout(checkoutTokenId, newOrder);
       dispatch(setOrder(orderRes));
       refreshCart();
-      navigate("/confirmation");
+      navigate('/confirmation');
       dispatch(setReceipt(order));
     } catch (err) {
       console.log(err);

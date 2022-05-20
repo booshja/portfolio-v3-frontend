@@ -1,11 +1,11 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // components
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 // assets
-import { faTrashCan, faBoxArchive } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan, faBoxArchive } from '@fortawesome/free-solid-svg-icons';
 
 const MessageContainer = styled.li`
   border: 1px solid ${({ theme: t }) => t.white};

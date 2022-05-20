@@ -1,13 +1,13 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // components
-import { Outlet, Routes, Route } from "react-router";
-import { AdminHeadline } from "../typography";
-import { AdminPageContainer } from "../containers";
+import { Outlet, Routes, Route } from 'react-router';
+import { AdminHeadline } from '../typography';
+import { AdminPageContainer } from '../containers';
 // pages
-import Message from "../../Message";
-import Messages from "../../Messages";
+import Message from '../../Message';
+import Messages from '../../Messages';
 
 const MessagesContainer = styled(AdminPageContainer)`
   position: relative;

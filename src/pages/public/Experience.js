@@ -1,13 +1,13 @@
 // dependencies
-import React from "react";
-import { useNavigate } from "react-router";
-import { v4 as randomId } from "uuid";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router';
+import { v4 as randomId } from 'uuid';
+import styled from 'styled-components';
 // assets
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faLaptop } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLaptop } from '@fortawesome/free-solid-svg-icons';
 // components
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   PageContainer,
   MainContent,
@@ -18,8 +18,8 @@ import {
   ExpCardFront,
   ExpCardInner,
   Screencap,
-} from "./styles/containers";
-import { LoadingSpinner } from "../../components";
+} from './styles/containers';
+import { LoadingSpinner } from '../../components';
 import {
   PageTitle,
   ExpList,
@@ -29,9 +29,9 @@ import {
   Tag,
   TagList,
   ExpCardLink,
-} from "./styles/typography";
+} from './styles/typography';
 // services
-import { useGetProjectsQuery } from "../../services/booshjaAPI";
+import { useGetProjectsQuery } from '../../services/booshjaAPI';
 
 const ExpContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgSecondary};
@@ -120,7 +120,7 @@ const Experience = () => {
       );
     }
   } else if (isError) {
-    navigate("/error");
+    navigate('/error');
   }
 
   return (

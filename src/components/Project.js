@@ -1,7 +1,7 @@
 // dependencies
-import React from "react";
-import { v4 as randomId } from "uuid";
-import styled from "styled-components";
+import React from 'react';
+import { v4 as randomId } from 'uuid';
+import styled from 'styled-components';
 
 const ProjectContainer = styled.div`
   display: grid;

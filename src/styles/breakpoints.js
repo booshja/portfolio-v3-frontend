@@ -1,11 +1,11 @@
 // dependencies
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 const breakpoints = (
-  cssProp = "padding",
-  cssPropUnits = "px",
+  cssProp = 'padding',
+  cssPropUnits = 'px',
   values = [],
-  mediaQueryType = "min-width",
+  mediaQueryType = 'min-width',
 ) => {
   // function for creating media queries for use in styled-components
   const breakpointProps = values.reduce((mediaQueries, value) => {
@@ -19,7 +19,7 @@ const breakpoints = (
         }
         `;
     return queries;
-  }, "");
+  }, '');
   return css([breakpointProps]);
 };
 

@@ -1,5 +1,5 @@
 // dependencies
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 // breakpoints
 // import { breakpoints } from "./breakpoints";
 

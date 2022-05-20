@@ -1,15 +1,15 @@
 // dependencies
-import React from "react";
+import React from 'react';
 // assets
 import {
   faGithub,
   faTwitter,
   faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons';
 // components
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SocialsContainer, VerticalAccentDiv } from "./styles/containers";
-import { FollowMe } from "./styles/typography";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { SocialsContainer, VerticalAccentDiv } from './styles/containers';
+import { FollowMe } from './styles/typography';
 
 const Socials = () => (
   <SocialsContainer>

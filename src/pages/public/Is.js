@@ -1,9 +1,9 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // components
-import { PageContainer, LandingDivider } from "./styles/containers";
-import { MyName, MyTitle } from "./styles/typography";
+import { PageContainer, LandingDivider } from './styles/containers';
+import { MyName, MyTitle } from './styles/typography';
 
 const IsPageContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgPrimary};

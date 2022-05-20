@@ -1,6 +1,6 @@
 // dependencies
-import React from "react";
-import { CopyrightText } from "./styles/typography";
+import React from 'react';
+import { CopyrightText } from './styles/typography';
 
 const Copyright = () => {
   const thisYear = new Date().getFullYear();

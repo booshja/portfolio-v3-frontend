@@ -1,15 +1,15 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // components
-import { AdminHeadline } from "./styles/typography";
-import { AdminPageContainer } from "./styles/containers";
-import { LoadingSpinner } from "../../components";
+import { AdminHeadline } from './styles/typography';
+import { AdminPageContainer } from './styles/containers';
+import { LoadingSpinner } from '../../components';
 // services
 import {
   useGetMessagesQuery,
   useGetProjectsQuery,
-} from "../../services/booshjaAPI";
+} from '../../services/booshjaAPI';
 
 const DashboardContainer = styled(AdminPageContainer)``;
 

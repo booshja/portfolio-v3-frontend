@@ -1,5 +1,5 @@
 // dependencies
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const AdminHeadline = styled.h1`
   color: ${({ theme: t }) => t.textPrimary};

@@ -1,8 +1,8 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // components
-import Product from "./Product";
+import Product from './Product';
 
 const ProductsListContainer = styled.ul`
   margin-top: 2rem;

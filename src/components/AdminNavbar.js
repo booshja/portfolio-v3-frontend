@@ -1,19 +1,19 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // assets
 import {
   faHouseDamage,
   faEnvelopeOpenText,
   faCartFlatbed,
   faSkullCrossbones,
-} from "@fortawesome/free-solid-svg-icons";
-import { faInternetExplorer } from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
+import { faInternetExplorer } from '@fortawesome/free-brands-svg-icons';
 // components
-import { Outlet, useLocation } from "react-router";
-import { Link, NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { WebsiteName } from "./styles/typography";
+import { Outlet, useLocation } from 'react-router';
+import { Link, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { WebsiteName } from './styles/typography';
 
 const SideNav = styled.nav`
   background-color: ${({ theme: t }) => t.bgSecondary};
@@ -81,10 +81,10 @@ const AdminNavbar = () => {
   const location = useLocation();
 
   const makeBreadcrumbs = (pathname) => {
-    if (pathname === "/admin" || pathname === "/admin/") return "dashboard()";
+    if (pathname === '/admin' || pathname === '/admin/') return 'dashboard()';
 
     const slicedPath = pathname.slice(7);
-    const splitPath = slicedPath.split("/");
+    const splitPath = slicedPath.split('/');
     let breadcrumbs = `${splitPath[0]}()`;
     if (splitPath.length > 1) {
       for (let i = 1; i < splitPath.length; i + 1) {

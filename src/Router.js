@@ -1,11 +1,11 @@
 // dependencies
-import React from "react";
+import React from 'react';
 // components
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Outlet } from "react-router";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Outlet } from 'react-router';
 // layouts
-import { PublicLayout } from "./pages/public/styles/layouts";
-import { AdminLayout, MessagesLayout } from "./pages/admin/styles/layouts";
+import { PublicLayout } from './pages/public/styles/layouts';
+import { AdminLayout, MessagesLayout } from './pages/admin/styles/layouts';
 // pages
 import {
   About,
@@ -21,7 +21,7 @@ import {
   Orders,
   Projects,
   //   Store,
-} from "./pages";
+} from './pages';
 
 // const PublicLayout = () => (
 //   <div>

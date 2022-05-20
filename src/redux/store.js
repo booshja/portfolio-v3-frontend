@@ -1,11 +1,11 @@
 /* eslint-disable */
 // dependencies
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 // import { setupListeners } from "@reduxjs/toolkit/query";
-import { booshjaApi } from "../services/booshjaAPI";
+import { booshjaApi } from '../services/booshjaAPI';
 // state
 // import CommerceSlice from "../slices/commerceSlice";
-import themeSlice from "./slices/themeSlice";
+import themeSlice from './slices/themeSlice';
 
 export default configureStore({
   reducer: {

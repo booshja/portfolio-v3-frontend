@@ -1,12 +1,12 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
-import { useSelector } from "react-redux";
+import React from 'react';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 // components
-import { Link } from "react-router-dom";
-import CartItem from "./CartItem";
+import { Link } from 'react-router-dom';
+import CartItem from './CartItem';
 // redux global state
-import { selectCart } from "../redux/slices/commerceSlice";
+import { selectCart } from '../redux/slices/commerceSlice';
 
 const CartListContainer = styled.div`
   width: 100%;
@@ -84,7 +84,7 @@ const CartList = ({ setIsCheckout }) => {
         </>
       ) : (
         <p>
-          There&apos;s nothing in your cart&hellip;{" "}
+          There&apos;s nothing in your cart&hellip;{' '}
           <Link to="/store">Go add something</Link>!
         </p>
       )}

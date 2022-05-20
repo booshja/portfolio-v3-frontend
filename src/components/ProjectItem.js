@@ -1,8 +1,8 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // components
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const ProjectItemContainer = styled.li`
   border: 1px solid ${({ theme: t }) => t.white};
