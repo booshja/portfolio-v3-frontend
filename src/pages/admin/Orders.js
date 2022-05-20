@@ -1,9 +1,9 @@
 // dependencies
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 // components
-import { AdminHeadline } from "./styles/typography";
-import { AdminPageContainer } from "./styles/containers";
+import { AdminHeadline } from './styles/typography';
+import { AdminPageContainer } from './styles/containers';
 
 const OrdersContainer = styled(AdminPageContainer)``;
 

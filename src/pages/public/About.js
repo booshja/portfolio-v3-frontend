@@ -1,12 +1,12 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // components
 import {
   PageContainer,
   MainContent,
   LeftSide as Left,
-} from "./styles/containers";
+} from './styles/containers';
 import {
   PageTitle,
   Hi,
@@ -16,9 +16,9 @@ import {
   SkillsHeader,
   SkillsList,
   Skill,
-} from "./styles/typography";
+} from './styles/typography';
 // assets
-import Headshot from "../../assets/headshot.jpg";
+import Headshot from '../../assets/headshot.jpg';
 
 const AboutContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgPrimary};

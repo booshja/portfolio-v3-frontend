@@ -1,15 +1,15 @@
 // dependencies
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 // styles
-import GlobalStyle from "./styles/globalStyles";
-import { THEMES } from "./styles/themes";
+import GlobalStyle from './styles/globalStyles';
+import { THEMES } from './styles/themes';
 // components
-import Router from "./Router";
-import { MainContent } from "./pages/public/styles/containers";
-import { LoadingSpinner } from "./components";
+import Router from './Router';
+import { MainContent } from './pages/public/styles/containers';
+import { LoadingSpinner } from './components';
 // state
-import { setThemeNumber, setCurrentTheme } from "./redux/slices/themeSlice";
+import { setThemeNumber, setCurrentTheme } from './redux/slices/themeSlice';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,20 +17,20 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const rememberedTheme = localStorage.getItem("theme");
+    const rememberedTheme = localStorage.getItem('theme');
     if (rememberedTheme) {
-      if (rememberedTheme === "Dark") {
+      if (rememberedTheme === 'Dark') {
         dispatch(setThemeNumber(1));
         dispatch(setCurrentTheme(THEMES[1]));
-      } else if (rememberedTheme === "Soft") {
+      } else if (rememberedTheme === 'Soft') {
         dispatch(setThemeNumber(2));
         dispatch(setCurrentTheme(THEMES[2]));
-      } else if (rememberedTheme === "Sharp") {
+      } else if (rememberedTheme === 'Sharp') {
         dispatch(setThemeNumber(3));
         dispatch(setCurrentTheme(THEMES[3]));
       }
     } else if (!rememberedTheme) {
-      localStorage.setItem("theme", "Light");
+      localStorage.setItem('theme', 'Light');
     }
     setLoading(false);
   }, []);

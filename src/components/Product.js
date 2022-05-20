@@ -1,6 +1,6 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const ItemCard = styled.li`
   width: 300px;

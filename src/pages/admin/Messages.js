@@ -1,15 +1,15 @@
 /* eslint-disable */
 // dependencies
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 // components
-import { LoadingSpinner, MessageItem } from "../../components";
+import { LoadingSpinner, MessageItem } from '../../components';
 // services
 import {
   useGetMessagesQuery,
   useToggleArchiveMutation,
   useDeleteMessageMutation,
-} from "../../services/booshjaAPI";
+} from '../../services/booshjaAPI';
 
 const MessageListContainer = styled.ul`
   display: flex;
@@ -111,7 +111,7 @@ const Messages = () => {
   return (
     <>
       <ArchivedToggle onClick={() => setShowArchived((prev) => !prev)}>
-        See {showArchived ? "Active" : "Archived"} Messages
+        See {showArchived ? 'Active' : 'Archived'} Messages
       </ArchivedToggle>
       <MessageListContainer>{content}</MessageListContainer>
     </>

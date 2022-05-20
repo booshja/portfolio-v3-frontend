@@ -1,15 +1,15 @@
 // dependencies
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 // redux global state
-import { setCart, selectCart } from "../../redux/slices/commerceSlice";
+import { setCart, selectCart } from '../../redux/slices/commerceSlice';
 // components
-import { MainContent } from "./styles/containers";
-import { PageTitle } from "./styles/typography";
-import { LoadingSpinner, CartList, Checkout } from "../../components";
+import { MainContent } from './styles/containers';
+import { PageTitle } from './styles/typography';
+import { LoadingSpinner, CartList, Checkout } from '../../components';
 // utilities
-import { getCart } from "../../services/commerce";
+import { getCart } from '../../services/commerce';
 
 const CartContainer = styled(MainContent)`
   display: flex;

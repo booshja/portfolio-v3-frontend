@@ -1,11 +1,11 @@
 // dependencies
-import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 // components
-import { Link } from "react-router-dom";
-import { Copyright } from "../../components";
+import { Link } from 'react-router-dom';
+import { Copyright } from '../../components';
 // styles
-import { adminTheme } from "../../styles/themes";
+import { adminTheme } from '../../styles/themes';
 
 const LoginContainer = styled.div`
   display: flex;

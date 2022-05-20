@@ -1,6 +1,5 @@
-**/build/*
-**/dependencies/*
+node_modules/*
+build/*
 .husky/*
 package-lock.json
 package.json
-

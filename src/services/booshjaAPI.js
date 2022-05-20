@@ -1,47 +1,47 @@
 /* eslint-disable */
 // dependencies
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const booshjaApi = createApi({
-  reducerPath: "booshjaApi",
+  reducerPath: 'booshjaApi',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BOOSHJA_BASE_URL,
   }),
-  tagTypes: ["Message"],
+  tagTypes: ['Message'],
   endpoints: (builder) => ({
     getProjects: builder.query({
-      query: () => "projects",
+      query: () => 'projects',
     }),
     getProject: builder.query({
       query: (id) => `projects/${id}`,
     }),
     getMessages: builder.query({
-      query: () => "messages",
-      providesTags: ["Message"],
+      query: () => 'messages',
+      providesTags: ['Message'],
     }),
     addNewMessage: builder.mutation({
       query: (newMessage) => ({
-        url: "messages",
-        method: "POST",
+        url: 'messages',
+        method: 'POST',
         body: newMessage,
       }),
     }),
     toggleArchive: builder.mutation({
       query: ({ id, archive }) => ({
         url: `messages/${id}`,
-        method: "PATCH",
+        method: 'PATCH',
         body: {
           archive: archive,
         },
       }),
-      invalidatesTags: ["Message"],
+      invalidatesTags: ['Message'],
     }),
     deleteMessage: builder.mutation({
       query: (id) => ({
         url: `messages/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
       }),
-      invalidatesTags: ["Message"],
+      invalidatesTags: ['Message'],
     }),
   }),
 });

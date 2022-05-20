@@ -1,5 +1,5 @@
 // dependencies
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const FormSubmitBtn = styled.button`
   align-self: flex-end;

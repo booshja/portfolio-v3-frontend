@@ -1,10 +1,10 @@
 // dependencies
-import React, { useState } from "react";
-import styled from "styled-components";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { useForm } from 'react-hook-form';
 // services
-import sendEmail from "../../services/emailService";
-import { useAddNewMessageMutation } from "../../services/booshjaAPI";
+import sendEmail from '../../services/emailService';
+import { useAddNewMessageMutation } from '../../services/booshjaAPI';
 // components
 import {
   PageContainer,
@@ -12,9 +12,9 @@ import {
   LeftSide,
   FormError,
   MailImg,
-} from "./styles/containers";
-import { FormSubmitBtn } from "./styles/buttons";
-import { Result, LoadingSpinner } from "../../components";
+} from './styles/containers';
+import { FormSubmitBtn } from './styles/buttons';
+import { Result, LoadingSpinner } from '../../components';
 import {
   PageTitle,
   ContactForm,
@@ -22,9 +22,9 @@ import {
   ContactLabel,
   ContactText,
   ContactTextArea,
-} from "./styles/typography";
+} from './styles/typography';
 // assets
-import MailBoxes from "../../assets/po-boxes.jpeg";
+import MailBoxes from '../../assets/po-boxes.jpeg';
 
 const ContactContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgSecondary};
@@ -86,7 +86,7 @@ const Contact = () => {
                 type="text"
                 placeholder="Namey McNameson"
                 id="name"
-                {...register("name", { required: "Name is required." })}
+                {...register('name', { required: 'Name is required.' })}
               />
               {errors.name && <FormError>{errors.name.message}</FormError>}
               <ContactLabel htmlFor="email">Email:</ContactLabel>
@@ -94,7 +94,7 @@ const Contact = () => {
                 type="text"
                 placeholder="example@email.com"
                 id="email"
-                {...register("email", { required: "Email is required." })}
+                {...register('email', { required: 'Email is required.' })}
               />
               {errors.email && <FormError>{errors.email.message}</FormError>}
               <ContactLabel htmlFor="name">Message:</ContactLabel>
@@ -103,11 +103,11 @@ const Contact = () => {
                 id="message"
                 maxLength="200"
                 rows="4"
-                {...register("message", {
-                  required: "Message is required.",
+                {...register('message', {
+                  required: 'Message is required.',
                   maxLength: {
                     value: 200,
-                    message: "Maximum message length 200 characters.",
+                    message: 'Maximum message length 200 characters.',
                   },
                 })}
               />

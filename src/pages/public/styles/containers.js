@@ -1,5 +1,5 @@
 // dependencies
-import styled from "styled-components";
+import styled from 'styled-components';
 
 /** Generics ******************************************* */
 const ColumnFlex = styled.div`
@@ -88,7 +88,7 @@ const ExpCardBack = styled.div`
   backface-visibility: hidden;
   padding: 20% 1rem 20% 1rem;
   border: ${({ theme: t }) =>
-    t.themeName === "Light" ? "2px solid #000000" : "none"};
+    t.themeName === 'Light' ? '2px solid #000000' : 'none'};
 
   & a:nth-of-type(1) {
     margin-bottom: 3rem;

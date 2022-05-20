@@ -1,5 +1,5 @@
 // dependencies
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const MyName = styled.h1`
   font-size: 12rem;
@@ -180,9 +180,9 @@ const Tag = styled.li`
   border-radius: 15px;
   background-color: ${({ theme: t }) => t.bgCard};
   color: ${({ theme: t }) => t.bgPrimary};
-  ${({ theme: t }) => t.themeName === "Light" && "color: #000000;"};
+  ${({ theme: t }) => t.themeName === 'Light' && 'color: #000000;'};
   border: ${({ theme: t }) =>
-    t.themeName === "Light" ? "2px solid #000000" : "none"};
+    t.themeName === 'Light' ? '2px solid #000000' : 'none'};
   display: flex;
   justify-content: center;
   align-items: center;

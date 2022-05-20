@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 // dependencies
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const commerceSlice = createSlice({
-  name: "commerce",
+  name: 'commerce',
   initialState: {
     products: [],
     cart: {},

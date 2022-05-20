@@ -1,5 +1,5 @@
 // dependencies
-import styled from "styled-components";
+import styled from 'styled-components';
 
 /** Generics ******************************************* */
 const ColumnFlex = styled.div`
@@ -52,7 +52,7 @@ const SocialsContainer = styled.aside`
 `;
 
 const SpinnerContainer = styled(ColumnFlex)`
-  font-size: ${(p) => (p.size ? `${p.size}rem` : "10rem")};
+  font-size: ${(p) => (p.size ? `${p.size}rem` : '10rem')};
   color: ${({ theme: t }) => t.textPrimary};
   align-items: center;
 `;

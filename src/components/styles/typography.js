@@ -1,7 +1,7 @@
 // dependencies
-import styled from "styled-components";
+import styled from 'styled-components';
 // components
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom';
 
 /** Links ********************************************** */
 const WebsiteName = styled(Link)`

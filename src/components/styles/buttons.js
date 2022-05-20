@@ -1,5 +1,5 @@
 // dependencies
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const NavButton = styled.button`
   font-size: 1.8rem;

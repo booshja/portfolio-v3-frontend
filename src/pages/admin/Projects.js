@@ -1,14 +1,14 @@
 // dependencies
-import React from "react";
-import { useNavigate } from "react-router";
-import { v4 as randomId } from "uuid";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router';
+import { v4 as randomId } from 'uuid';
+import styled from 'styled-components';
 // components
-import { AdminHeadline } from "./styles/typography";
-import { AdminPageContainer } from "./styles/containers";
-import { ProjectItem, Project, LoadingSpinner } from "../../components";
+import { AdminHeadline } from './styles/typography';
+import { AdminPageContainer } from './styles/containers';
+import { ProjectItem, Project, LoadingSpinner } from '../../components';
 // services
-import { useGetProjectsQuery } from "../../services/booshjaAPI";
+import { useGetProjectsQuery } from '../../services/booshjaAPI';
 
 const ProjectsContainer = styled(AdminPageContainer)`
   padding: 2rem;
@@ -49,7 +49,7 @@ const Projects = () => {
       );
     }
   } else if (isError) {
-    navigate("/error");
+    navigate('/error');
   }
 
   return (

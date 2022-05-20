@@ -1,8 +1,8 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // utilities
-import { updateCartQty } from "../services/commerce";
+import { updateCartQty } from '../services/commerce';
 
 const CartItemContainer = styled.div`
   height: 120px;

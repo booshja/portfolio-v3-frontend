@@ -1,23 +1,23 @@
 // dependencies
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // components
-import { Link } from "react-router-dom";
-import { PageTitle } from "./styles/typography";
-import { MainContent, PageContainer } from "./styles/containers";
-import { Header, Socials, Copyright } from "../../components";
+import { Link } from 'react-router-dom';
+import { PageTitle } from './styles/typography';
+import { MainContent, PageContainer } from './styles/containers';
+import { Header, Socials, Copyright } from '../../components';
 // assets
-import SadIceCream from "../../assets/sad-ice-cream.jpeg";
-import BugsSaysNo from "../../assets/bugs-bunnys-no.png";
+import SadIceCream from '../../assets/sad-ice-cream.jpeg';
+import BugsSaysNo from '../../assets/bugs-bunnys-no.png';
 
 const NotFoundContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgSecondary};
   min-height: 100vh;
-  ${({ wp }) => (wp ? "display: flex" : null)};
-  ${({ wp }) => (wp ? "align-items: center" : null)};
-  ${({ wp }) => (wp ? "justify-content: center" : null)};
-  ${({ wp }) => (wp ? "margin-top: 0" : null)};
-  ${({ wp }) => (wp ? "padding-top: 0" : null)};
+  ${({ wp }) => (wp ? 'display: flex' : null)};
+  ${({ wp }) => (wp ? 'align-items: center' : null)};
+  ${({ wp }) => (wp ? 'justify-content: center' : null)};
+  ${({ wp }) => (wp ? 'margin-top: 0' : null)};
+  ${({ wp }) => (wp ? 'padding-top: 0' : null)};
 `;
 
 const NotFoundContent = styled(MainContent)`
